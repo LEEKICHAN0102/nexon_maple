@@ -3,9 +3,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import MainImage from "../../public/the_lake_of_oblivion.webp";
-import { getCharacter } from "@/api/api";
+import { getOcid, getCharacter } from "@/api/api";
 import { useState } from "react";
 import Card from "@/components/Card";
+import useStore from "@/store/store";
 
 export interface CharacterProps {
   access_flag: string;
@@ -27,6 +28,7 @@ export interface CharacterProps {
 export default function Home() {
   const [characterName, setCharacterName] = useState("");
   const [characterStatus, setCharacterStatus] = useState<CharacterProps | null>(null);
+  const { ocidState, setOcid } = useStore()
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCharacterName(event.target.value);
@@ -36,13 +38,15 @@ export default function Home() {
     event.preventDefault(); // 기본 제출 동작 방지
   
     try {
-      const characterData = await getCharacter(characterName);
+      const characterOcid = await getOcid(characterName);
+      const characterData = await getCharacter(characterOcid);
+      setOcid(characterOcid);
       setCharacterStatus(characterData);
     } catch (error) {
       console.error("캐릭터 정보를 가져오는 중 에러 발생:", error);
     }
   }
-
+  
   return (
     <main className={styles.main}>
       <div className={styles.mainDiv}>
