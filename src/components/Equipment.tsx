@@ -1,9 +1,14 @@
-export default function Equipment ({}) {
+import { EquipProps } from "@/@modal/Detail"
+
+interface EquipmentProps {
+  characterEquipment: EquipProps;
+}
+
+export default function Equipment ({characterEquipment}: EquipmentProps) {
   return(
     <div>
       <div>
-        <p>이름</p>
-        {/* <img src={} alt={} /> */}
+        
       </div>
       <div>
         

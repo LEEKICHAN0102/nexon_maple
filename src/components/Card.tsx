@@ -15,9 +15,13 @@ export default function Card({character}: CardProps) {
     setModalOpen(true);
   }
 
+  const handleModalClose = () => {
+    setModalOpen(false);
+  }
+
   return(
     <>
-      {isModalOpen ? <Detail /> : (
+      {isModalOpen ? <Detail onClose={handleModalClose} /> : (
         <div className={styles.cardBox}>
           <div className={styles.cardImage}>
             <img src={`${character.character_image}`} alt="대표 이미지" />

@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MainImage from "../../public/the_lake_of_oblivion.webp";
 import { getOcid, getCharacter } from "@/api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "@/components/Card";
 import useStore from "@/store/store";
 
@@ -28,6 +28,7 @@ export interface CharacterProps {
 export default function Home() {
   const [characterName, setCharacterName] = useState("");
   const [characterStatus, setCharacterStatus] = useState<CharacterProps | null>(null);
+  const [ isModal , setModal ] = useState<boolean | undefined>();
   const { ocidState, setOcid } = useStore()
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,10 +43,15 @@ export default function Home() {
       const characterData = await getCharacter(characterOcid);
       setOcid(characterOcid);
       setCharacterStatus(characterData);
+      setModal(false);
     } catch (error) {
       console.error("캐릭터 정보를 가져오는 중 에러 발생:", error);
     }
   }
+
+  useEffect(() => {
+    console.log("캐릭터 OCID:", ocidState);
+  },[ocidState])
   
   return (
     <main className={styles.main}>
