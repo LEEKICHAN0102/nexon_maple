@@ -1,6 +1,6 @@
 import Detail from "@/@modal/Detail";
 import { CharacterProps } from "@/app/page";
-import styles from "@/components/card.module.css";
+import styles from "./card.module.css";
 import { useState } from "react";
 
 interface CardProps {

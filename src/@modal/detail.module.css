@@ -19,9 +19,8 @@
   height: 100%;
   z-index: 99;
   padding: 10px;
-  color: black;
+  background-color: #282E38;
   border-radius: inherit;
-  background-color: inherit;
 }
 
 .detailRight {

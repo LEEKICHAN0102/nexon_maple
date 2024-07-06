@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 import MainImage from "../../public/the_lake_of_oblivion.webp";
 import { getOcid, getCharacter } from "@/api/api";
 import { useEffect, useState } from "react";
-import Card from "@/components/Card";
+import Card from "@/components/Card/Card";
 import useStore from "@/store/store";
 
 export interface CharacterProps {

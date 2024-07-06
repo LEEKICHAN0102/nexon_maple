@@ -73,3 +73,21 @@ export const getItemEquipment = async (ocid: string) => {
     console.log("캐릭터 장착 아이템(캐시 제외) 정보 요청 중 에러:", error);
   }
 }
+
+export const getAndroid = async (ocid: string) => {
+  try{
+    const responseAndroid = await axios.get(`${BASE_URL}/maplestory/v1/character/android-equipment`, {
+      headers: {
+        "x-nxopen-api-key": NEXON_API_KEY,
+      },
+      params: {
+        ocid,
+      }
+    });
+
+    console.log(responseAndroid.data);
+    return responseAndroid.data;
+  } catch (error) {
+    console.log("캐릭터 장착 안드로이드 정보 요청 중 에러:", error);
+  }
+}

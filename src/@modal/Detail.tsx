@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./detail.module.css";
 import useStore from "@/store/store";
-import { getStat, getItemEquipment } from "@/api/api";
-import Stat from "@/components/Stat";
-import Equipment from "@/components/Equipment";
+import { getStat, getItemEquipment, getAndroid } from "@/api/api";
+import Stat from "@/components/Stat/Stat";
+import Equipment from "@/components/Equipment/Equipment";
 import { TiDelete } from "react-icons/ti";
 import { DProps, IEProps, MProps, TProps } from "@/Types/Equipment";
 
@@ -28,6 +28,14 @@ export interface EquipProps {
   title?: TProps;
 }
 
+export interface AndroidProps {
+  date?: null;
+  android_name: string;
+  android_nickname: string;
+  android_icon: string;
+  android_description: string;
+}
+
 interface DetailProps {
   onClose: () => void;
 }
@@ -36,6 +44,7 @@ export default function Detail({ onClose }: DetailProps) {
   const { ocidState } = useStore();
   const [statData, setStatData] = useState<StatProps>();
   const [equipData, setEquipData] = useState<EquipProps>();
+  const [androidData, setAndroidData] = useState<AndroidProps>();
 
   useEffect(() => {
     const fetchStat = async () => {
@@ -56,8 +65,18 @@ export default function Detail({ onClose }: DetailProps) {
       }
     };
 
+    const fetchAndroid = async () => {
+      try {
+        const androidResponse = await getAndroid(ocidState);
+        setAndroidData(androidResponse);
+      } catch (error) {
+        console.error("Error fetching android data:", error);
+      }
+    };
+
     fetchStat();
     fetchEquip();
+    fetchAndroid();
   }, [ocidState]);
 
   return (
@@ -66,7 +85,7 @@ export default function Detail({ onClose }: DetailProps) {
         <Stat characterStat={statData} />
       </div>
       <div className={styles.detailRight}>
-        {equipData && <Equipment characterEquipment={equipData} />}
+        {equipData && androidData && <Equipment characterEquipment={equipData} characterAndroid={androidData} />}
       </div>
       <TiDelete className={styles.detailButton} onClick={onClose} />
     </main>
