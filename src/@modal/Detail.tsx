@@ -81,13 +81,15 @@ export default function Detail({ onClose }: DetailProps) {
 
   return (
     <main className={styles.detailMain}>
-      <div className={styles.detailLeft}>
-        <Stat characterStat={statData} />
+      <TiDelete className={styles.detailButton} onClick={onClose} style={{ width:"50px", height:"50px" }} />
+      <div className={styles.detailContent}>
+        <div className={styles.detailLeft}>
+          <Stat characterStat={statData} />
+        </div>
+        <div className={styles.detailRight}>
+          {equipData && androidData && <Equipment characterEquipment={equipData} characterAndroid={androidData} />}
+        </div>
       </div>
-      <div className={styles.detailRight}>
-        {equipData && androidData && <Equipment characterEquipment={equipData} characterAndroid={androidData} />}
-      </div>
-      <TiDelete className={styles.detailButton} onClick={onClose} />
     </main>
   );
 }

@@ -4,15 +4,36 @@ import styles from "./stat.module.css";
 export default function Stat({ characterStat }: { characterStat: any }) {
   const stats = useCharacterStats(characterStat);
 
+  function formatStringNumber(strNumber: string) {
+    // 문자열을 숫자로 변환
+    let number = parseInt(strNumber, 10);
+  
+    if (isNaN(number)) {
+      return "유효한 숫자가 아닙니다.";
+    }
+  
+    if (number >= 100000000) {
+      // 억 단위와 만 단위를 분리
+      let billionPart = Math.floor(number / 100000000);  // 억 부분
+      let remainder = number % 100000000;  // 나머지 (억 아래 부분)
+      let remainderFormatted = remainder.toString().replace(/\B(?=(\d{4})+(?!\d))/g, ',');
+  
+      return `${billionPart}억 ${remainderFormatted.replace(',', '만 ')}`;
+    } else {
+
+      return strNumber.replace(/\B(?=(\d{4})+(?!\d))/g, ',').replace(',', '만 ');
+    }
+  }
+
   return (
     <main>
       <div className={styles.mainDiv}>
         <div className={styles.mainInfo}>
           <p>전투력</p>
-          <span className={styles.mainInfoSpan}>{stats["전투력"]}</span>
+          <span className={styles.mainInfoSpan}>{formatStringNumber(stats["전투력"])}</span>
         </div>
         <div className={styles.mainStat}>
-          <span>스탯 공격력: ▲ {stats["최대 스탯공격력"]}</span>
+          <span>스탯 공격력: ▲ {formatStringNumber(stats["최대 스탯공격력"])}</span>
           <span>데미지: {stats["데미지"]} %</span>
           <span>최종뎀: {stats["최종 데미지"]} %</span>
           <span>보스 몬스터 데미지: {stats["보스 몬스터 데미지"]} %</span>

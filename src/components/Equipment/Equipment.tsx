@@ -1,97 +1,170 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { EquipProps, AndroidProps } from "@/@modal/Detail";
 import useCharacterEquip from "@/hooks/useCharacterEquip";
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';
+import EquipStatBox from './EquipStatBox';
 
 interface EquipmentProps {
   characterEquipment: EquipProps;
   characterAndroid: AndroidProps;
 }
 
-export default function Equipment ({ characterEquipment, characterAndroid }: EquipmentProps) {
+const defaultEquipData = {
+  star: "5",
+  properties: ["Property 1", "Property 2"],
+  imageUrl: "https://example.com/equipImage.jpg",
+  altText: "Equipment Image",
+  category: "Ring",
+  potentials: ["Potential 1", "Potential 2", "Potential 3"],
+  additionalPotentials: ["Additional Potential 1", "Additional Potential 2", "Additional Potential 3"],
+};
+
+export default function Equipment({ characterEquipment, characterAndroid }: EquipmentProps) {
   const equip = useCharacterEquip(characterEquipment);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   return (
     <div className={styles.equipmentContainer}>
+      <div
+        onMouseEnter={handleMouseEnter}
+        onMouseDown={handleMouseLeave}
+      >
+        <EquipBox 
+          slotCoordinate={styles['slot-1']}
+          equipmentImage={equip["반지4"]}
+          altImage={"반지4"}
+        />
+        {isHovered && <EquipStatBox data={defaultEquipData} />}
+      </div>
       <EquipBox 
-        equipmentSlot={styles.equipmentSlot}
-        slotCoordinate={styles['slot-1']}
-        equipmentImage={equip["반지4"]}
-        altImage={"반지4"}
+        slotCoordinate={styles['slot-2']}
+        equipmentImage={equip["모자"]}
+        altImage={"모자"}
       />
-      <div className={`${styles.equipmentSlot} ${styles['slot-2']}`}>
-        <img src={`${equip["모자"]}`} alt="모자" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-3']}`}>
-        <img src={`${equip["엠블렘"]}`} alt="엠블렘" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-4']}`}>
-        <img src={`${equip["반지3"]}`} alt="반지3" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-5']}`}>
-        <img src={`${equip["펜던트2"]}`} alt="펜던트2" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-6']}`}>
-        <img src={`${equip["얼굴장식"]}`} alt="얼굴장식" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-7']}`}>
-        <img src={`${equip["뱃지"]}`} alt="뱃지" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-8']}`}>
-        <img src={`${equip["반지2"]}`} alt="반지2" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-9']}`}>
-        <img src={`${equip["펜던트"]}`} alt="펜던트" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-10']}`}>
-        <img src={`${equip["눈장식"]}`} alt="눈장식" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-11']}`}>
-        <img src={`${equip["귀고리"]}`} alt="귀고리" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-12']}`}>
-        <img src={`${equip["훈장"]}`} alt="훈장" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-13']}`}>
-        <img src={`${equip["반지1"]}`} alt="반지1" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-14']}`}>
-        <img src={`${equip["무기"]}`} alt="무기" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-15']}`}>
-        <img src={`${equip["상의"]}`} alt="상의" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-16']}`}>
-        <img src={`${equip["어깨장식"]}`} alt="어깨장식" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-17']}`}>
-        <img src={`${equip["보조무기"]}`} alt="보조무기" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-18']}`}>
-        <img src={`${equip["포켓 아이템"]}`} alt="포켓 아이템" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-19']}`}>
-        <img src={`${equip["벨트"]}`} alt="벨트" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-20']}`}>
-        <img src={`${equip["하의"]}`} alt="하의" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-21']}`}>
-        <img src={`${equip["장갑"]}`} alt="장갑" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-22']}`}>
-        <img src={`${equip["망토"]}`} alt="망토" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-23']}`}>
-        <img src={`${equip["신발"]}`} alt="신발" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-24']}`}>
-        <img src={`${characterAndroid.android_icon}`} alt="안드로이드" />
-      </div>
-      <div className={`${styles.equipmentSlot} ${styles['slot-25']}`}>
-        <img src={`${equip["기계 심장"]}`} alt="기계 심장" />
-      </div>
+      <EquipBox 
+        slotCoordinate={styles['slot-3']}
+        equipmentImage={equip["엠블렘"]}
+        altImage={"엠블렘"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-4']}
+        equipmentImage={equip["반지3"]}
+        altImage={"반지3"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-5']}
+        equipmentImage={equip["펜던트2"]}
+        altImage={"펜던트2"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-6']}
+        equipmentImage={equip["얼굴장식"]}
+        altImage={"얼굴장식"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-7']}
+        equipmentImage={equip["뱃지"]}
+        altImage={"뱃지"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-8']}
+        equipmentImage={equip["반지2"]}
+        altImage={"반지2"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-9']}
+        equipmentImage={equip["펜던트"]}
+        altImage={"펜던트"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-10']}
+        equipmentImage={equip["눈장식"]}
+        altImage={"눈장식"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-11']}
+        equipmentImage={equip["귀고리"]}
+        altImage={"귀고리"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-12']}
+        equipmentImage={equip["훈장"]}
+        altImage={"훈장"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-13']}
+        equipmentImage={equip["반지1"]}
+        altImage={"반지1"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-14']}
+        equipmentImage={equip["무기"]}
+        altImage={"무기"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-15']}
+        equipmentImage={equip["상의"]}
+        altImage={"상의"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-16']}
+        equipmentImage={equip["어깨장식"]}
+        altImage={"어깨장식"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-17']}
+        equipmentImage={equip["보조무기"]}
+        altImage={"보조무기"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-18']}
+        equipmentImage={equip["포켓 아이템"]}
+        altImage={"포켓 아이템"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-19']}
+        equipmentImage={equip["벨트"]}
+        altImage={"벨트"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-20']}
+        equipmentImage={equip["하의"]}
+        altImage={"하의"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-21']}
+        equipmentImage={equip["장갑"]}
+        altImage={"장갑"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-22']}
+        equipmentImage={equip["망토"]}
+        altImage={"망토"}
+      />
+      <EquipBox 
+        slotCoordinate={styles['slot-23']}
+        equipmentImage={equip["신발"]}
+        altImage={"신발"}
+      />
+      <EquipBox
+        slotCoordinate={styles['slot-24']}
+        equipmentImage={characterAndroid.android_icon}
+        altImage={"안드로이드"}
+      />
+      <EquipBox
+        slotCoordinate={styles['slot-25']}
+        equipmentImage={equip["기계 심장"]}
+        altImage={"기계 심장"}
+      />
     </div>
   );
 }

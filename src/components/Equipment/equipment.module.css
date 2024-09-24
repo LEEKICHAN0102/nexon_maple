@@ -1,3 +1,4 @@
+/* 메인 컨테이너 Right */
 .equipmentContainer {
   display: grid;
   grid-template-columns: repeat(5, 64px); /* 각 칸의 너비를 64px로 설정 */
@@ -11,6 +12,7 @@
   border-radius: 10px; /* 모서리 둥글게 설정 */
 }
 
+/* 아이템 칸 */
 .equipmentSlot {
   width: 64px;
   height: 64px;
@@ -19,12 +21,45 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.equipmentSlot img {
-  max-width: 100%;
-  max-height: 100%;
+/* 이미지 */
+.equipmentImage {
+  width: auto;
+  height: auto;
 }
+
+.equipDetailBox {
+  width: 280px;
+  height: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  background-color: black;
+  opacity: 0;
+  z-index: 999;
+  position: absolute;
+  transition: opacity 0.3s ease; /* opacity 변경에 애니메이션 효과 추가 */
+}
+
+/* equipmentSlot에 hover 시 equipDetailBox가 나타나도록 설정 */
+.equipmentSlot:hover .equipDetailBox {
+  opacity: 0.5;
+}
+
+.starForceBox {}
+
+.imageBox {}
+
+.OptionBox {}
+
+.potentialBox {}
+
+.additionalBox {}
 
 /* 각 장비 슬롯의 grid 위치 지정 */
 .slot-1 { grid-column: 1; grid-row: 1; }

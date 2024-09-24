@@ -1,21 +1,26 @@
+import Image, { StaticImageData } from 'next/image';
+import styles from "./equipment.module.css";
+import victory from "../../../public/addonevictory.jpg";
+
 interface EBoxProps {
-  equipmentSlot: string;
   slotCoordinate: string;
-  equipmentImage: string;
+  equipmentImage: string | StaticImageData;
   altImage: string;
 }
 
-export default function EquipBox({ 
-  equipmentSlot,
+export default function EquipBox({
   slotCoordinate,
   equipmentImage,
-  altImage
+  altImage,
 }: EBoxProps) {
-  return(
-    <>
-      <div className={`${equipmentSlot} ${slotCoordinate}`}>
-        <img src={`${equipmentImage}`} alt={`${altImage}`} />
-      </div>
-    </>
-  )
+  return (
+    <div className={`${styles.equipmentSlot} ${slotCoordinate}`}>
+      <Image
+        width={30}
+        height={30}
+        src={equipmentImage ? equipmentImage : victory}
+        alt={altImage}
+      />
+    </div>
+  );
 }
