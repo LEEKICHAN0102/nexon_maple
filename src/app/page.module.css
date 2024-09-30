@@ -33,27 +33,28 @@
 }
 
 .mainInput {
-  width: 200px;
+  width: 400px;
   height: 50px;
-  border-radius: 10px;
   padding: 10px;
   position: relative;
   border: none;
   background-color: wheat;
   color: black;
+  outline: none;
   &::placeholder{
     color: gray;
+    font-weight: bolder;
   }
 }
 
 .mainButton {
   width: 100px;
   height: 50px;
-  border-radius: 10px;
   border: none;
   background-color: skyblue;
   color: black;
   cursor: pointer;
+  font-weight: bolder;
 }
 
 .mainCharacter {

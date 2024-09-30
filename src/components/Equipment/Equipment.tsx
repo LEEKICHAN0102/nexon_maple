@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EquipProps, AndroidProps } from "@/@modal/Detail";
+import { EquipProps, AndroidProps } from "@/components/Detail/Detail";
 import useCharacterEquip from "@/hooks/useCharacterEquip";
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';

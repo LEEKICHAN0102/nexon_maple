@@ -36,11 +36,7 @@ export interface AndroidProps {
   android_description: string;
 }
 
-interface DetailProps {
-  onClose: () => void;
-}
-
-export default function Detail({ onClose }: DetailProps) {
+export default function Detail() {
   const { ocidState } = useStore();
   const [statData, setStatData] = useState<StatProps>();
   const [equipData, setEquipData] = useState<EquipProps>();
@@ -81,7 +77,6 @@ export default function Detail({ onClose }: DetailProps) {
 
   return (
     <main className={styles.detailMain}>
-      <TiDelete className={styles.detailButton} onClick={onClose} style={{ width:"50px", height:"50px" }} />
       <div className={styles.detailContent}>
         <div className={styles.detailLeft}>
           <Stat characterStat={statData} />
