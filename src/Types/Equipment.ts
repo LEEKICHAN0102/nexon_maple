@@ -1,3 +1,21 @@
+export interface EquipProps {
+  date?: null;
+  character_class: string;
+  character_gender: string;
+  dragon_equipment?: DProps[];
+  item_equipment: IEProps[];
+  mechanic_equipment?: MProps[];
+  title?: TProps;
+}
+
+export interface AndroidProps {
+  date?: null;
+  android_name: string;
+  android_nickname: string;
+  android_icon: string;
+  android_description: string;
+}
+
 interface ItemAddOption {
   all_stat: string;
   armor: string;

@@ -14,3 +14,14 @@ export interface CharacterProps {
   liberation_quest_clear_flag: string;
   world_name: string;
 }
+
+export interface FinalProps {
+  stat_name: string;
+  stat_value: string;
+}
+
+export interface StatProps {
+  date?: null;
+  character_class: string;
+  final_stat: FinalProps[];
+}

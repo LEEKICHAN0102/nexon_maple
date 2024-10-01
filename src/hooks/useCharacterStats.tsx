@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { StatProps } from "@/components/Detail/Detail";
+import { StatProps } from "@/Types/Character";
 
 const useCharacterStats = (characterStat: StatProps | undefined) => {
   const [stats, setStats] = useState<{ [key: string]: string }>({});

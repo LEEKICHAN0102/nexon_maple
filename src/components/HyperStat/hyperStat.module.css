@@ -1,0 +1,50 @@
+.mainDiv{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #3E6076;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 3px;
+}
+
+.mainTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #c1df18;
+}
+
+.contentDiv {
+  display: grid;
+  font: bold;
+  font-size:smaller;
+  color: white;
+  grid-template-columns: repeat(2, 250px);
+  background-color: #6C7886;
+  border-radius: 3px;
+  padding: 20px;
+  gap: 20px;
+}
+
+.presetDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #6C7886;
+  color: white;
+}
+
+.presetButton {
+  width: 5px;
+  height: 5px;
+  padding: 1px;
+  border-radius: 1px;
+}
+
+.pointDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #3E6076;
+  color: white;
+}
