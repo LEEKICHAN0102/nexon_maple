@@ -1,19 +1,16 @@
 .detailMain {
-  background-color: azure;
   width: auto;
   height: auto;
   border-radius: 10px;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .detailContent {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 2px;
 }
 
 .detailLeft {

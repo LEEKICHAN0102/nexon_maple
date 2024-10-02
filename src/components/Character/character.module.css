@@ -1,0 +1,110 @@
+.characterInfo {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  background-color: #191c1e;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 5px;
+}
+
+.mainTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #DAFA03;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: aliceblue;
+  width: 500px;
+  height: 250px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: inherit;
+  padding: 5px;
+}
+
+.leftDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1px;
+  width: inherit;
+  height: 50%;
+}
+
+.borderBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 125px;
+  height: 23px;
+  background-color: #9AA2AC;
+  border-radius: 10px;
+  padding: 5px;
+  color: aliceblue;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.center {
+  height: inherit;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c6d0dd;
+}
+
+.levelBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #9AA2AC;
+  width: 90px;
+  height: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: aliceblue;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.imageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.nameDiv {
+  width: 100px;
+  height: 20px;
+  background-color: #3CC2D8;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+
+.right {
+  height: inherit;
+  gap: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5px;
+}

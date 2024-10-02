@@ -12,8 +12,10 @@ import { CharacterProps } from "@/Types/Character";
 import useStore from "@/store/store";
 
 // components
-import Card from "@/components/Card/Card";
+import Character from "@/components/Character/Character";
 import Detail from "@/components/Detail/Detail";
+
+import styles from "./search.module.css";
 
 export default function SearchPage() {
   const [characterStatus, setCharacterStatus] = useState<CharacterProps | null>(null);
@@ -26,7 +28,7 @@ export default function SearchPage() {
       if (characterName) {
         try {
           const characterOcid = await getOcid(characterName); // 캐릭터 이름으로 OCID 가져오기
-          setOcid(characterOcid); // 전역 상태에 OCID 저장
+          setOcid(characterOcid.ocid); // 전역 상태에 OCID 저장
 
           const characterData = await getCharacter(ocidState); // OCID로 캐릭터 데이터 가져오기
           setCharacterStatus(characterData); // 상태 업데이트
@@ -40,8 +42,8 @@ export default function SearchPage() {
   }, [characterName, ocidState]); // characterName이 변경될 때마다 실행
 
   return (
-    <div>
-      <Card character={characterStatus} />
+    <div className={styles.mainDiv}>
+      <Character character={characterStatus} />
       <Detail />
     </div>
   );

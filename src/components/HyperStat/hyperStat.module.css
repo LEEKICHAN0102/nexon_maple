@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  background-color: #3E6076;
-  border-radius: 10px;
+  background-color: #191c1e;
   padding: 10px;
+  border-radius: 10px;
   gap: 3px;
 }
 
@@ -19,11 +19,17 @@
   font: bold;
   font-size:smaller;
   color: white;
-  grid-template-columns: repeat(2, 250px);
+  font-size: 10px;
   background-color: #6C7886;
   border-radius: 3px;
   padding: 20px;
-  gap: 20px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
 }
 
 .presetDiv {
@@ -32,13 +38,17 @@
   justify-content: space-around;
   background-color: #6C7886;
   color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .presetButton {
-  width: 5px;
-  height: 5px;
+  width: 15px;
+  height: 15px;
   padding: 1px;
-  border-radius: 1px;
+  font-size: 8px;
+  border-radius: 3px;
 }
 
 .pointDiv {
@@ -46,5 +56,21 @@
   align-items: center;
   justify-content: space-around;
   background-color: #3E6076;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.remainPoint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 10px;
+  width: 120px;
+  height: 20px;
+  font-size: 12px;
+  font-weight: bold;
   color: white;
 }

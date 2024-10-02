@@ -12,9 +12,6 @@ function CustomToast({ type, message }: TProps) {
   useEffect(() => {
     const showToast = () => {
       switch (type) {
-        case 'success':
-          toast.success(message);
-          break;
         case 'error':
           toast.error(message);
           break;

@@ -1,0 +1,27 @@
+.mainDiv{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #191c1e;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 3px;
+}
+
+.mainTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #c1df18;
+}
+
+.gradeDiv {
+  
+}
+
+.presetDiv {
+
+}
+
+.pointDiv {
+
+}

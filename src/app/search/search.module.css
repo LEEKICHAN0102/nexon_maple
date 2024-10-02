@@ -1,0 +1,9 @@
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(214, 197, 197);
+  padding: 10px;
+  gap: 2px;
+}

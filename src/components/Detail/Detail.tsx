@@ -5,6 +5,7 @@ import { getStat, getItemEquipment, getAndroid, getHyperStat, getAbility } from 
 import Stat from "@/components/Stat/Stat";
 import Equipment from "@/components/Equipment/Equipment";
 import HyperStat from "@/components/HyperStat/HyperStat";
+import Ability from "@/components/Ability/Ability";
 
 // Types
 import { StatProps } from "@/Types/Character";
@@ -12,7 +13,6 @@ import { HyperProps } from "@/Types/Hyper";
 import { AndroidProps } from "@/Types/Equipment";
 import { EquipProps } from "@/Types/Equipment";
 import { AbilityProps } from "@/Types/Ability";
-import Ability from "../Ability/Ability";
 
 export default function Detail() {
   const { ocidState } = useStore();

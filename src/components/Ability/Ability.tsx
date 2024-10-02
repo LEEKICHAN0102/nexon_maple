@@ -6,6 +6,13 @@ export default function Ability({ characterAbility }: { characterAbility: any })
   console.log("어빌 보기:", abil);
 
   return(
-    <div></div>
+    <div className={styles.mainDiv}>
+      <p className={styles.mainTitle}>ABILITY</p>
+      <div className={styles.gradeDiv}></div>
+      <div className={styles.presetDiv}>
+        
+      </div>
+      <div className={styles.pointDiv}>gd</div>
+    </div>
   )
 }

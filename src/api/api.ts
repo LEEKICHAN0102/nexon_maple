@@ -1,219 +1,65 @@
 import axios from "axios";
 import { BASE_URL, NEXON_API_KEY } from "@/constant/constant";
 
-export const getOcid = async (characterName: string) => {
+const fetchData = async (endpoint: string, params: Record<string, string>, errorMessage: string) => {
   try {
-
-    const responseOcid = await axios.get(`${BASE_URL}/maplestory/v1/id`, {
+    const response = await axios.get(`${BASE_URL}${endpoint}`, {
       headers: {
         "x-nxopen-api-key": NEXON_API_KEY,
       },
-      params: {
-        character_name: characterName,
-      },
-    })
-
-    return responseOcid.data.ocid;
-
+      params,
+    });
+    return response.data;
   } catch (error) {
-    console.error("OCID 요청 중 에러:", error);
+    console.error(`${endpoint} 요청 중 에러:`, errorMessage);
+    throw error;
   }
 };
 
-export const getCharacter = async (ocid: string) => {
-  try {
-    const responseCharacter = await axios.get(`${BASE_URL}/maplestory/v1/character/basic`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    return responseCharacter.data;
-    
-  } catch (error) {
-    console.error("API 요청 중 에러:", error);
-  }
+export const getOcid = (characterName: string) => {
+  return fetchData('/maplestory/v1/id', { character_name: characterName }, "OCID 데이터 가져오는 중 에러");
 };
 
-export const getStat = async (ocid: string) => {
-  try{
-    const responseState = await axios.get(`${BASE_URL}/maplestory/v1/character/stat`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
+export const getCharacter = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/basic', { ocid }, "캐릭터 기본 데이터 가져오는 중 에러 발생");
+};
 
-    console.log(responseState.data);
-    return responseState.data;
-  } catch (error) {
-    console.log("캐릭터 스탯 정보 요청 중 에러:", error);
-  }
-}
+export const getStat = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/stat', { ocid }, "캐릭터 스텟 데이터 가져오는 중 에러 발생");
+};
 
-export const getItemEquipment = async (ocid: string) => {
-  try{
-    const responseEquipment = await axios.get(`${BASE_URL}/maplestory/v1/character/item-equipment`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
+export const getItemEquipment = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/item-equipment', { ocid }, "캐릭터 장착 아이템(캐시 제외) 정보 요청 중 에러");
+};
 
-    console.log(responseEquipment.data);
-    return responseEquipment.data;
-  } catch (error) {
-    console.log("캐릭터 장착 아이템(캐시 제외) 정보 요청 중 에러:", error);
-  }
-}
+export const getAndroid = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/android-equipment', { ocid }, "캐릭터 장착 안드로이드 정보 요청 중 에러");
+};
 
-export const getAndroid = async (ocid: string) => {
-  try{
-    const responseAndroid = await axios.get(`${BASE_URL}/maplestory/v1/character/android-equipment`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
+export const getHyperStat = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/hyper-stat', { ocid }, "캐릭터 하이퍼 스탯 정보 요청 중 에러");
+};
 
-    console.log(responseAndroid.data);
-    return responseAndroid.data;
-  } catch (error) {
-    console.log("캐릭터 장착 안드로이드 정보 요청 중 에러:", error);
-  }
-}
+export const getAbility = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/ability', { ocid }, "캐릭터 어빌리티 정보 요청 중 에러");
+};
 
-export const getHyperStat = async (ocid: string) => {
-  try{
-    const responseHyperStat = await axios.get(`${BASE_URL}/maplestory/v1/character/hyper-stat`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
+export const getSymbol = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/symbol-equipment', { ocid }, "캐릭터 장착 심볼 정보 요청 중 에러");
+};
 
-    console.log(responseHyperStat.data);
-    return responseHyperStat.data;
-  } catch (error) {
-    console.log("캐릭터 하이퍼 스탯 정보 요청 중 에러:", error);
-  }
-}
+export const getSetEffect = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/set-effect', { ocid }, "캐릭터 적용 세트 효과 정보 요청 중 에러");
+};
 
-export const getAbility = async (ocid: string) => {
-  try{
-    const responseAbility = await axios.get(`${BASE_URL}/maplestory/v1/character/ability`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
+export const getVMatrix = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/vmatrix', { ocid }, "캐릭터 V매트릭스 정보 요청 중 에러");
+};
 
-    console.log(responseAbility.data);
-    return responseAbility.data;
-  } catch (error) {
-    console.log("캐릭터 어빌리티 정보 요청 중 에러:", error);
-  }
-}
+export const getHexaMatrix = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/hexamatrix', { ocid }, "캐릭터 헥사 매트릭스 정보 요청 중 에러");
+};
 
-export const getSymbol = async (ocid: string) => {
-  try{
-    const responseSymbol = await axios.get(`${BASE_URL}/maplestory/v1/character/symbol-equipment`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    console.log(responseSymbol.data);
-    return responseSymbol.data;
-  } catch (error) {
-    console.log("캐릭터 장착 심볼 정보 요청 중 에러:", error);
-  }
-}
-
-export const getSetEffect = async (ocid: string) => {
-  try{
-    const responseSetEffect = await axios.get(`${BASE_URL}/maplestory/v1/character/set-effect`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    console.log(responseSetEffect.data);
-    return responseSetEffect.data;
-  } catch (error) {
-    console.log("캐릭터 적용 세트 효과 정보 요청 중 에러:", error);
-  }
-}
-
-export const getVMatrix = async (ocid: string) => {
-  try{
-    const responseVMatrix = await axios.get(`${BASE_URL}/maplestory/v1/character/vmatrix`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    console.log(responseVMatrix.data);
-    return responseVMatrix.data;
-  } catch (error) {
-    console.log("캐릭터 V매트릭스 정보 요청 중 에러:", error);
-  }
-}
-
-export const getHexaMatrix = async (ocid: string) => {
-  try{
-    const responseHexaMatrix = await axios.get(`${BASE_URL}/maplestory/v1/character/hexamatrix`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    console.log(responseHexaMatrix.data);
-    return responseHexaMatrix.data;
-  } catch (error) {
-    console.log("캐릭터 어빌리티 정보 요청 중 에러:", error);
-  }
-}
-
-export const getHexaMatrixStat = async (ocid: string) => {
-  try{
-    const responseHexaMatrixStat = await axios.get(`${BASE_URL}/maplestory/v1/character/hexamatrix-stat`, {
-      headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
-      },
-      params: {
-        ocid,
-      }
-    });
-
-    console.log(responseHexaMatrixStat.data);
-    return responseHexaMatrixStat.data;
-  } catch (error) {
-    console.log("캐릭터 어빌리티 정보 요청 중 에러:", error);
-  }
-}
+export const getHexaMatrixStat = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/hexamatrix-stat', { ocid }, "캐릭터 헥사 매트릭스 스탯 정보 요청 중 에러");
+};
