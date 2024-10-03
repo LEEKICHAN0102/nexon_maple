@@ -5,8 +5,10 @@ export interface AbilityObjectProps {
 }
 
 export interface AbilityPresetProps {
-  ability_preset_grade: string;
-  ability_info: AbilityObjectProps[];
+  preset: {
+    ability_preset_grade: string;  // 어빌 등급
+    ability_info: AbilityObjectProps[];  // 적용 어빌 정보
+  };
 }
 
 export interface AbilityProps {
