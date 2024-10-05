@@ -1,0 +1,31 @@
+.navigation {
+  width: inherit;
+}
+
+.uList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  width: inherit;
+  gap: 5px;
+}
+
+.listBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #677281;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #31B3CB;
+}

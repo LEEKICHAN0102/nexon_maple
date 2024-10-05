@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+
+// types
 import { StatProps } from "@/Types/Character";
 
 const useCharacterStats = (characterStat: StatProps | undefined) => {

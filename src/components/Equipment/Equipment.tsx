@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EquipProps, AndroidProps } from "@/components/Detail/Detail";
+import { EquipProps, AndroidProps } from '@/Types/Equipment';
 import useCharacterEquip from "@/hooks/useCharacterEquip";
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';
@@ -181,7 +181,7 @@ export default function Equipment({ characterEquipment, characterAndroid }: Equi
       />
       <EquipBox
         slotCoordinate={styles['slot-24']}
-        equipmentImage={characterAndroid.android_icon}
+        equipmentImage={characterAndroid?.android_icon}
         altImage={"안드로이드"}
       />
       <EquipBox

@@ -1,87 +1,41 @@
-import { useEffect, useState } from "react";
 import styles from "./detail.module.css";
-import useStore from "@/store/store";
-import { getStat, getItemEquipment, getAndroid, getHyperStat, getAbility } from "@/api/api";
-import Stat from "@/components/Stat/Stat";
-import Equipment from "@/components/Equipment/Equipment";
+import useOcid from "@/store/ocid";
+import Info from "../Info/Info";
 import HyperStat from "@/components/HyperStat/HyperStat";
 import Ability from "@/components/Ability/Ability";
 
-// Types
-import { StatProps } from "@/Types/Character";
-import { HyperProps } from "@/Types/Hyper";
-import { AndroidProps } from "@/Types/Equipment";
-import { EquipProps } from "@/Types/Equipment";
-import { AbilityProps } from "@/Types/Ability";
+import Loading from "../Loading/Loading";
+
+import { useStatQuery } from "@/hooks/apis/useStatQuery";
+import { useHyperQuery } from "@/hooks/apis/useHyperQuery";
+import { useAbilityQuery } from "@/hooks/apis/useAbilityQuery";
+import useNavStore from "@/store/nav";
+import { useEquipmentQuery } from "@/hooks/apis/useEquipQuery";
 
 export default function Detail() {
-  const { ocidState } = useStore();
-  const [statData, setStatData] = useState<StatProps>();
-  const [equipData, setEquipData] = useState<EquipProps>();
-  const [androidData, setAndroidData] = useState<AndroidProps>();
-  const [hyperData, setHyperData] = useState<HyperProps>();
-  const [abilityData, setAbilityData] = useState<AbilityProps>();
+  const { ocidState } = useOcid();
+  const { selected } = useNavStore();
+  const { data: statData, isLoading: statLoading, error: statError } = useStatQuery(ocidState);
+  const { data: equipData, isLoading: equipLoading, error: equipError } = useEquipmentQuery(ocidState);
+  const { data: hyperData, isLoading: hyperLoading, error: hyperError } = useHyperQuery(ocidState);
+  const { data: abilityData, isLoading: abilityLoading, error: abilityError } = useAbilityQuery(ocidState);
 
-  useEffect(() => {
-    const fetchStat = async () => {
-      try {
-        const statResponse = await getStat(ocidState);
-        setStatData(statResponse);
-      } catch (error) {
-        console.error("Error fetching stat data:", error);
-      }
-    };
+  if (statLoading || equipLoading || hyperLoading || abilityLoading) {
+    return <Loading />;
+  }
 
-    // const fetchEquip = async () => {
-    //   try {
-    //     const equipResponse = await getItemEquipment(ocidState);
-    //     setEquipData(equipResponse);
-    //   } catch (error) {
-    //     console.error("Error fetching equipment data:", error);
-    //   }
-    // };
+  if (statError || equipError || hyperError || abilityError) {
+    return <div>Error occurred while fetching data.</div>;
+  }
 
-    // const fetchAndroid = async () => {
-    //   try {
-    //     const androidResponse = await getAndroid(ocidState);
-    //     setAndroidData(androidResponse);
-    //   } catch (error) {
-    //     console.error("Error fetching android data:", error);
-    //   }
-    // };
-
-    const fetchHyperStat = async () => {
-      try {
-        const hyperStatResponse = await getHyperStat(ocidState);
-        setHyperData(hyperStatResponse);
-      } catch (error) {
-        console.error("Error fetching Hyper Stat data:", error);
-      }
-    }
-
-    const fetchAbility = async () => {
-      try {
-        const AbilityResponse = await getAbility(ocidState);
-        setAbilityData(AbilityResponse);
-      } catch (error) {
-        console.error("Error fetching Ability data:", error);
-      }
-    }
-
-    fetchStat();
-    // fetchEquip();
-    // fetchAndroid();
-    fetchHyperStat();
-    fetchAbility();
-  }, [ocidState]);
+  console.log(statData, " 스탯 잘 나오냐?");
 
   return (
     <main className={styles.detailMain}>
       <div className={styles.detailContent}>
-          <HyperStat characterHyper={hyperData} />
-          <Stat characterStat={statData} />
-          {/* {equipData && androidData && <Equipment characterEquipment={equipData} characterAndroid={androidData} />} */}
-          <Ability characterAbility={abilityData} />
+        <HyperStat characterHyper={hyperData} />
+        <Info infoData={statData} />
+        <Ability characterAbility={abilityData} />
       </div>
     </main>
   );

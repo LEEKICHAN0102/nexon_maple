@@ -16,14 +16,14 @@ export default function Home() {
 
   const handleSearchSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // 기본 제출 동작 방지
-  
+
     try {
       router.push(`/search?name=${characterName}`);
     } catch (error) {
       console.error("캐릭터 ocid를 가져오는 중 에러 발생:", error);
     }
   }
-  
+
   return (
     <main className={styles.main}>
       <div className={styles.mainDiv}>

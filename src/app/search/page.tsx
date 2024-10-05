@@ -1,15 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from 'next/navigation'
 
-// api
-import { getOcid, getCharacter } from "@/api/api";
-
-import { CharacterProps } from "@/Types/Character";
-
 // store
-import useStore from "@/store/store";
+import useOcid from "@/store/ocid";
 
 // components
 import Character from "@/components/Character/Character";
@@ -17,33 +12,36 @@ import Detail from "@/components/Detail/Detail";
 
 import styles from "./search.module.css";
 
+import Loading from "@/components/Loading/Loading";
+
+import { useOcidQuery } from "@/hooks/apis/useOcidQuery";
+import { useCharacterQuery } from "@/hooks/apis/useCharacterQuery";
+
 export default function SearchPage() {
-  const [characterStatus, setCharacterStatus] = useState<CharacterProps | null>(null);
-  const { ocidState, setOcid } = useStore();
+  const { ocidState, setOcid } = useOcid();
   const searchParams = useSearchParams();
-  const characterName = searchParams.get('name'); // example | name="대리깨진사람" return 대리깨진사람
+  const characterName = searchParams.get('name'); // 예: name="대리깨진사람"
+
+  const { data: ocidData, isLoading: ocidLoading, error: ocidError } = useOcidQuery(characterName || "");
+  const { data: characterData, isLoading: characterLoading, error: characterError } = useCharacterQuery(ocidState);
 
   useEffect(() => {
-    const fetchCharacterData = async () => {
-      if (characterName) {
-        try {
-          const characterOcid = await getOcid(characterName); // 캐릭터 이름으로 OCID 가져오기
-          setOcid(characterOcid.ocid); // 전역 상태에 OCID 저장
+    if (ocidData) {
+      setOcid(ocidData.ocid);
+    }
+  }, [ocidData]); // 초기 마운트시 ocidData & 업데이트
 
-          const characterData = await getCharacter(ocidState); // OCID로 캐릭터 데이터 가져오기
-          setCharacterStatus(characterData); // 상태 업데이트
-        } catch (error) {
-          console.error("캐릭터 정보를 가져오는 중 에러 발생:", error);
-        }
-      }
-    };
-
-    fetchCharacterData();
-  }, [characterName, ocidState]); // characterName이 변경될 때마다 실행
+  if (ocidLoading || characterLoading) {
+    return <Loading />
+  }
+  
+  if (ocidError || characterError) {
+    return <div>Error occurred while fetching data.</div>;
+  }
 
   return (
     <div className={styles.mainDiv}>
-      <Character character={characterStatus} />
+      <Character character={characterData} />
       <Detail />
     </div>
   );

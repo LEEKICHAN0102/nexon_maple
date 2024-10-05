@@ -1,7 +1,8 @@
-import useCharacterStats from "@/hooks/useCharacterStats";
 import styles from "./stat.module.css";
 
-export default function Stat({ characterStat }: { characterStat: any }) {
+import useCharacterStats from "@/hooks/useCharacterStats";
+
+export default function Stat({ characterStat }: any) {
   const stats = useCharacterStats(characterStat);
 
   function formatStringNumber(strNumber: string) {
@@ -25,10 +26,9 @@ export default function Stat({ characterStat }: { characterStat: any }) {
     }
   }
 
-  return (
-    <main>
-      <div className={styles.mainDiv}>
-        <div className={styles.mainInfo}>
+  return(
+    <>
+      <div className={styles.mainInfo}>
           <p>전투력</p>
           <span className={styles.mainInfoSpan}>{formatStringNumber(stats["전투력"])}</span>
         </div>
@@ -58,7 +58,6 @@ export default function Stat({ characterStat }: { characterStat: any }) {
           <span>추가 경험치 획득: {stats["추가 경험치 획득"]}%</span>
           <span>어센틱포스: {stats["어센틱포스"]}</span>
         </div>
-      </div>
-    </main>
-  );
+    </>
+  )
 }
