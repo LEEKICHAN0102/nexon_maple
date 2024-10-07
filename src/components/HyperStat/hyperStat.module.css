@@ -1,12 +1,12 @@
 .mainDiv{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 300px;
-  height: auto;
+  height: 557px;
   background-color: #191c1e;
   padding: 10px;
   border-radius: 10px;
-  gap: 3px;
 }
 
 .mainTitle {

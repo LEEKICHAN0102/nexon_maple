@@ -63,3 +63,7 @@ export const getHexaMatrix = (ocid: string) => {
 export const getHexaMatrixStat = (ocid: string) => {
   return fetchData('/maplestory/v1/character/hexamatrix-stat', { ocid }, "캐릭터 헥사 매트릭스 스탯 정보 요청 중 에러");
 };
+
+export const getPet = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/pet-equipment', { ocid }, "펫 장착 정보 요청 중 에러");
+};

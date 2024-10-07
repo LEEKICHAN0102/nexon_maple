@@ -1,0 +1,23 @@
+.statMain {
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.statContent {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.statNav {
+  display: flex;
+  flex-direction: column;
+  gap:3px;
+  background-color: #191c1e;
+  padding: 10px;
+  border-radius: 10px;
+}
