@@ -1,0 +1,86 @@
+.symbolMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.symbolNav {
+  width: 200px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: gray;
+}
+
+.symbolButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: gray;
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.symbolContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #6466A3;
+  width: 200px;
+  gap: 20px;
+}
+
+.symbolSubSpan {
+  font-size: 10px;
+  font-weight: bold;
+  color: rgb(163, 161, 161);
+}
+
+.symbolSpanDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.symbolMainSpan {
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.symbolDivContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
+}
+
+.symbolDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border: 3px solid #A5A4C1;
+  padding: 5px;
+  border-radius: 5px;
+  height: 80px;
+}
+
+.symbolLevel {
+  font-size: 10px;
+  font-weight: bold;
+  color: rgb(222, 219, 219);
+}

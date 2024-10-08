@@ -1,28 +1,32 @@
 .equipMain {
   width: auto;
   height: auto;
-  border-radius: 10px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
+}
+
+.equipContent {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.equipCharacter {
+  display: flex;
+  align-items: center;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 10px;
 }
 
 .equipNav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  width: 500px;
-  height: auto;
+  gap:3px;
   background-color: #191c1e;
   padding: 10px;
-  border-radius: 10px;
-}
-
-.equipContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #191c1e;
-  padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
 }

@@ -1,3 +1,7 @@
+// styles
+import styles from "./symbol.module.css";
+
+// types
 import { SymbolProps } from "@/Types/Symbol"
 
 interface SymbolsProps {
@@ -11,23 +15,23 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
   const authenticSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('어센틱심볼'));
 
   return(
-    <div>
-      <div>
-        <button>ARCANE</button>
-        <button>AUTHENTIC</button>
+    <div className={styles.symbolMain}>
+      <div className={styles.symbolNav}>
+        <button className={styles.symbolButton}>ARCANE</button>
+        <button className={styles.symbolButton}>AUTHENTIC</button>
       </div>
-      <div>
-        <span>ARCANE EQUIPMENT</span>
-        <div>
-          <span>ARC + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_force), 0)}</span>
-          <span>주스탯 + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_str), 0)}</span>
+      <div className={styles.symbolContent}>
+        <span className={styles.symbolSubSpan}>ARCANE EQUIPMENT</span>
+        <div className={styles.symbolSpanDiv}>
+          <span className={styles.symbolMainSpan}>ARC + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_force), 0)}</span>
+          <span className={styles.symbolMainSpan}>주스탯 + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_str), 0)}</span>
         </div>
-        <div>
+        <div className={styles.symbolDivContent}>
           {arcaneSymbols.map((symbol, index) => (
-            <div key={index}>
+            <div key={index} className={styles.symbolDiv}>
               {/* symbol_icon과 symbol_name 출력 */}
               <img src={symbol.symbol_icon} alt={symbol.symbol_name} />
-              <span>Lv {symbol.symbol_level}</span>
+              <span className={styles.symbolLevel}>Lv. {symbol.symbol_level}</span>
             </div>
           ))}
         </div>

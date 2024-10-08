@@ -19,7 +19,12 @@ export default function Navigation() {
         >
           EQUIP
         </li>
-        <li className={styles.listBox}>SKILL</li>
+        <li 
+          className={`${styles.listBox} ${selected === "SKILL" ? styles.selected : ""}`} 
+          onClick={() => onSelect("SKILL")}
+        >
+          SKILL
+        </li>
         <li className={styles.listBox}>CASH</li>
       </ul>
     </nav>

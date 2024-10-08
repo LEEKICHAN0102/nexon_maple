@@ -8,8 +8,19 @@
   gap: 5px;
   background-color: #f4f4f4; /* 배경색 설정 */
   padding: 5px; /* 패딩 설정 */
-  border: 2px solid #ccc; /* 테두리 설정 */
   border-radius: 10px; /* 모서리 둥글게 설정 */
+}
+
+.equipColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equipSpan {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5B5B5D;
 }
 
 /* 아이템 칸 */

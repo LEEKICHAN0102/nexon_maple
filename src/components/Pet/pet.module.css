@@ -1,0 +1,51 @@
+.petMain {
+  width: inherit;
+  height: auto;
+  background-color: #9EA0A3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.petSpan {
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+}
+
+.petContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.petContentDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.petSubSpan {
+  font-size: 8px;
+  font-weight: bold;
+  color: black;
+}
+
+.petImageContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.petImageDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 2px;
+  background-color: #7E8488;
+}

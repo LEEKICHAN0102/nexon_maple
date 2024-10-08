@@ -35,14 +35,16 @@ export default function EquipConditional() {
 
   return(
     <main className={styles.equipMain}>
-        <Navigation />
-        <div className={styles.equipContent}>
-          <Equipment characterEquipment={equipData} characterAndroid={androidData} />
-          <Symbol characterSymbol={symbolData} />
-        </div>
-        <div>
+      <div className={styles.equipContent}>
+        <div className={styles.equipNav}>
+          <Navigation />
+          <div className={styles.equipCharacter}>
+            <Equipment characterEquipment={equipData} characterAndroid={androidData} />
+            <Symbol characterSymbol={symbolData} />
+          </div>
           <Pet characterPet={petData} />
         </div>
+      </div>
     </main>
   )
 }

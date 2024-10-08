@@ -42,7 +42,7 @@ export interface PetDataProps {
 // 전체 데이터 구조에 대한 타입
 export interface PetProps {
   date?: string;
-  pet_1: PetProps;
-  pet_2: PetProps;
-  pet_3: PetProps;
+  pet_1: PetDataProps;
+  pet_2: PetDataProps;
+  pet_3: PetDataProps;
 }
