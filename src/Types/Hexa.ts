@@ -1,12 +1,7 @@
+import { VProps, VObjectProps } from "./VMatrix";
 
-export interface HexaObjectProps {
-  hexa_core_name: string;
-  hexa_core_level: number;
-  hexa_core_type: string;
-  linked_skill: [];
-}
+export interface HexaObjectProps extends VObjectProps {}
 
-export interface HexaProps {
-  data: string;
-  character_hexa_core_equipment: HexaObjectProps[];
+export interface HexaProps extends VProps {
+  character_skill: HexaObjectProps[];
 }

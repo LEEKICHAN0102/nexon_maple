@@ -108,3 +108,7 @@
   justify-content: flex-end;
   padding: 5px;
 }
+
+.blueBack {
+  background-color: #3CC2D8;
+}

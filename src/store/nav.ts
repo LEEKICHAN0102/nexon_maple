@@ -5,9 +5,17 @@ interface NavProps {
   onSelect: (section: string) => void;
 }
 
-const useNavStore = create<NavProps>((set) => ({
+interface SkillNavProps {
+  selected: string;
+  onSelect: (section: string) => void;
+}
+
+export const useNavStore = create<NavProps>((set) => ({
   selected: "STAT",
   onSelect: (section) => set({ selected: section }),
 }));
 
-export default useNavStore
+export const useSkillNavStore = create<SkillNavProps>((set) => ({
+  selected: "LINK",
+  onSelect: (section) => set({ selected: section }),
+}));

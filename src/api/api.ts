@@ -71,3 +71,11 @@ export const getPet = (ocid: string) => {
 export const getLink = (ocid: string) => {
   return fetchData('/maplestory/v1/character/link-skill', { ocid }, "캐릭터 장착 링크 스킬 정보 요청 중 에러");
 };
+
+export const getCash = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/cashitem-equipment', { ocid }, "캐릭터 장착 캐시 아이템 정보 요청 중 에러");
+};
+
+export const getBeauty = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/beauty-equipment', { ocid }, "캐릭터 장착 헤어, 성형, 피부 정보 요청 중 에러");
+};

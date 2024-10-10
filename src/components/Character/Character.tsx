@@ -28,7 +28,7 @@ export default function Card({character}: CardProps) {
           </div>
         </div>
         <div className={styles.right}>
-            <div className={styles.borderBox}>길드</div>
+            <div className={`${styles.borderBox} ${styles.blueBack}`}>길드</div>
             <div className={styles.borderBox}>길드</div>
             <div className={styles.borderBox}>연합</div>
         </div>

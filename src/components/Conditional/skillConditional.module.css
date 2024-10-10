@@ -1,0 +1,33 @@
+.skillMain {
+  width: auto;
+  height: auto;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skillContent {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.skillCharacter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.skillNav {
+  display: flex;
+  flex-direction: column;
+  gap:3px;
+  background-color: #191c1e;
+  padding: 10px;
+  border-radius: 5px;
+}

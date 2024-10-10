@@ -4,7 +4,7 @@ import victory from "../../../public/addonevictory.jpg";
 
 interface EBoxProps {
   slotCoordinate: string;
-  equipmentImage: string | StaticImageData;
+  equipmentImage?: string | StaticImageData;
   potentialGrade?: string;
   altImage: string;
 }

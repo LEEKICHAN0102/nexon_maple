@@ -1,5 +1,5 @@
 import styles from "./navigation.module.css";
-import useNavStore from "@/store/nav";
+import { useNavStore } from "@/store/nav";
 
 export default function Navigation() {
   const { selected, onSelect } = useNavStore(); // 전역 상태에서 선택된 섹션과 onSelect 함수 가져오기
@@ -25,7 +25,12 @@ export default function Navigation() {
         >
           SKILL
         </li>
-        <li className={styles.listBox}>CASH</li>
+        <li 
+          className={`${styles.listBox} ${selected === "CASH" ? styles.selected : ""}`} 
+          onClick={() => onSelect("CASH")}
+        >
+          CASH
+        </li>
       </ul>
     </nav>
   );
