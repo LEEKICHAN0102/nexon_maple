@@ -28,5 +28,9 @@
 
 .selected {
   background-color: #535C65;
+}
+
+.selectedSpan {
   color: #ECF3FB;
+  filter: drop-shadow(0 0 2px rgba(243, 244, 243, 0.7));
 }

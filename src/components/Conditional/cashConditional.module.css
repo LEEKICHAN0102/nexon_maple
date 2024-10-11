@@ -1,33 +1,25 @@
-.equipMain {
+.cashMain {
   width: auto;
   height: auto;
-  border-radius: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.equipContent {
-  display: flex;
-  gap: 2px;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.equipCharacter {
+.cashCharacter {
   display: flex;
   align-items: center;
   background-color: #EEEEEE;
   border-radius: 5px;
   padding: 10px;
   gap: 10px;
-  max-width: 500px;
 }
 
-.equipNav {
+.cashNav {
   display: flex;
   flex-direction: column;
   gap:3px;
   background-color: #191c1e;
   padding: 10px;
   border-radius: 5px;
+  max-width: 520px;
 }

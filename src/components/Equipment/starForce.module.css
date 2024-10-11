@@ -1,0 +1,20 @@
+.starContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* 줄 간격 */
+}
+
+.starRow {
+  display: flex;
+  gap: 4px; /* 별 간격 */
+}
+
+.filledStar {
+  color: gold; /* 차있는 별 노란색 */
+  font-size: 20px;
+}
+
+.emptyStar {
+  color: gray; /* 차있지 않은 별 어두운 회색 */
+  font-size: 20px;
+}

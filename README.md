@@ -1,17 +1,45 @@
 ### 공부할 겸 만들어본 next_nexon_openAPI
 
-#### Preview
+### Preview
 
-### 스크린샷 
+#### 캐릭터 기본
 
-![수정 전 메인페이지](./public/screenShot/beforeMain.png)
+![캐릭터 기본](./public/screenShot/preview_1.png)
 
-- 수정 전_1
+#### 캐릭터 스탯
 
-![수정 전 메인페이지](./public/screenShot/beforeStat.png)
+![캐릭터 스탯](./public/screenShot/preview_2.png)
 
-- 수정 전_2
+#### 캐릭터 장비
 
-![수정 해봄](./public/screenShot/afterStat.png)
+![캐릭터 장비](./public/screenShot/preview_3.png)
 
-- 수정 후 (뭐가 더 괜찮은지 고민 중)
+#### 캐릭터 스킬
+
+![캐릭터 스킬](./public/screenShot/preview_4.png)
+
+#### 캐릭터 캐시
+
+![캐릭터 캐시](./public/screenShot/preview_5.png)
+
+<br>
+<br>
+<br>
+
+- 필수
+
+1. 기본적인 인게임 UI 디자인, 아이템 등에 올려놓았을 경우 더욱 정확한 정보를 띄워줄 수 있는 창을 만들면 완성 될 듯..
+
+<br>
+<br>
+
+- 있으면 좋은 것들
+
+```
+1. 길드 인원 정보
+2. 유니온 & 아티팩트 형태
+3. 그랜드 어센틱 심볼 UI(이건 어떻게 생겼는지 아직 잘 모르겠다..) 
+```
+
+<br>
+<br>

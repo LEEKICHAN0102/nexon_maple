@@ -79,3 +79,15 @@ export const getCash = (ocid: string) => {
 export const getBeauty = (ocid: string) => {
   return fetchData('/maplestory/v1/character/beauty-equipment', { ocid }, "캐릭터 장착 헤어, 성형, 피부 정보 요청 중 에러");
 };
+
+export const getDojang = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/dojang', { ocid }, "무릉 도장 최고기록 정보 요청 중 에러");
+};
+
+export const getPopularity = (ocid: string) => {
+  return fetchData('/maplestory/v1/character/popularity', { ocid }, "캐릭터 인기도 정보 요청 중 에러");
+};
+
+export const getUnion = (ocid: string) => {
+  return fetchData('/maplestory/v1/user/union', { ocid }, "유니온 기본 정보 요청 중 에러");
+};

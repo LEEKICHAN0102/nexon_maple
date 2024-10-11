@@ -8,8 +8,6 @@ interface PetsProps {
 }
 
 export default function Pet({ characterPet }: PetsProps) {
-  console.log("펫 정보:", characterPet);
-
   return(
     <div className={styles.petMain}>
       <span className={styles.petSpan}>PET</span>

@@ -16,17 +16,36 @@
   background-color: gray;
 }
 
-.symbolButton {
+.leftButton {
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   background-color: gray;
+  color: rgb(203, 200, 200);
   font-size: 10px;
   font-weight: bold;
   width: 100px;
   height: 30px;
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+}
+
+.rightButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: gray;
+  color: rgb(203, 200, 200);
+  font-size: 10px;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
 }
 
 .symbolContent {
@@ -83,4 +102,9 @@
   font-size: 10px;
   font-weight: bold;
   color: rgb(222, 219, 219);
+}
+
+.selected {
+  background-color: #36B8D0;
+  color: white;
 }

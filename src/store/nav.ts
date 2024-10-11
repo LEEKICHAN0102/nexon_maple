@@ -5,13 +5,17 @@ interface NavProps {
   onSelect: (section: string) => void;
 }
 
-interface SkillNavProps {
-  selected: string;
-  onSelect: (section: string) => void;
-}
+interface SymProps extends NavProps {}
+
+interface SkillNavProps extends NavProps {}
 
 export const useNavStore = create<NavProps>((set) => ({
   selected: "STAT",
+  onSelect: (section) => set({ selected: section }),
+}));
+
+export const useSymbolStore = create<SymProps>((set) => ({
+  selected: "ARCANE",
   onSelect: (section) => set({ selected: section }),
 }));
 

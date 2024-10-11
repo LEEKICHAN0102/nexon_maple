@@ -6,9 +6,8 @@
   justify-items: center;
   align-items: center;
   gap: 5px;
-  background-color: #f4f4f4; /* 배경색 설정 */
-  padding: 5px; /* 패딩 설정 */
-  border-radius: 10px; /* 모서리 둥글게 설정 */
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .equipColumn {
@@ -28,27 +27,35 @@
   width: 48px;
   height: 48px;
   background-color: #e0e0e0;
-  border-radius: 5px;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
+.equipmentSlot span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 7px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.5;
+  z-index: 0;
+}
+
 .legendary {
-  border:1px solid rgb(84, 243, 84);
+  border:2px solid rgb(84, 243, 84);
 }
 .unique {
-  border: 2px solid rgb(244, 244, 40);
+  border: 3px solid rgb(244, 244, 40);
 }
 .epic {
-  border:1px solid rgb(132, 17, 132);
+  border:2px solid rgb(132, 17, 132);
 }
 .rare {
-  border:1px solid rgb(80, 80, 206);
-}
-.none {
-  border:1px solid #999;
+  border:2px solid rgb(80, 80, 206);
 }
 
 /* 이미지 */
@@ -68,7 +75,6 @@
   gap: 3px;
   background-color: black;
   opacity: 0;
-  z-index: 999;
   position: absolute;
   transition: opacity 0.3s ease; /* opacity 변경에 애니메이션 효과 추가 */
 }
@@ -89,33 +95,33 @@
 .additionalBox {}
 
 /* 각 장비 슬롯의 grid 위치 지정 */
-.slot-1 { grid-column: 1; grid-row: 1; }
-.slot-2 { grid-column: 3; grid-row: 1; }
-.slot-3 { grid-column: 5; grid-row: 1; }
+.slot-1 { grid-column: 1; grid-row: 1; background-color: #C3BEB5; }
+.slot-2 { grid-column: 3; grid-row: 1; background-color: #CACACA; }
+.slot-3 { grid-column: 5; grid-row: 1; background-color: #BAC9CC; }
 
-.slot-4 { grid-column: 1; grid-row: 2; }
-.slot-5 { grid-column: 2; grid-row: 2; }
-.slot-6 { grid-column: 3; grid-row: 2; }
-.slot-7 { grid-column: 5; grid-row: 2; }
+.slot-4 { grid-column: 1; grid-row: 2; background-color: #C3BEB5; }
+.slot-5 { grid-column: 2; grid-row: 2; background-color: #B3C2C6; }
+.slot-6 { grid-column: 3; grid-row: 2; background-color: #CACACA; }
+.slot-7 { grid-column: 5; grid-row: 2; background-color: #BAC8CC; }
 
-.slot-8 { grid-column: 1; grid-row: 3; }
-.slot-9 { grid-column: 2; grid-row: 3; }
-.slot-10 { grid-column: 3; grid-row: 3; }
-.slot-11 { grid-column: 4; grid-row: 3; }
-.slot-12 { grid-column: 5; grid-row: 3; }
+.slot-8 { grid-column: 1; grid-row: 3; background-color: #C3BEB5; }
+.slot-9 { grid-column: 2; grid-row: 3; background-color: #B3C2C6; }
+.slot-10 { grid-column: 3; grid-row: 3; background-color: #CACACA; }
+.slot-11 { grid-column: 4; grid-row: 3; background-color: #CCCCCC; }
+.slot-12 { grid-column: 5; grid-row: 3; background-color: #BAC8CC; }
 
-.slot-13 { grid-column: 1; grid-row: 4; }
-.slot-14 { grid-column: 2; grid-row: 4; }
-.slot-15 { grid-column: 3; grid-row: 4; }
-.slot-16 { grid-column: 4; grid-row: 4; }
-.slot-17 { grid-column: 5; grid-row: 4; }
+.slot-13 { grid-column: 1; grid-row: 4; background-color: #C3BEB5; }
+.slot-14 { grid-column: 2; grid-row: 4; background-color: #ABABAB; }
+.slot-15 { grid-column: 3; grid-row: 4; background-color: #CACACA; }
+.slot-16 { grid-column: 4; grid-row: 4; background-color: #CCCCCC; }
+.slot-17 { grid-column: 5; grid-row: 4; background-color: #ACACAC; }
 
-.slot-18 { grid-column: 1; grid-row: 5; }
-.slot-19 { grid-column: 2; grid-row: 5; }
-.slot-20 { grid-column: 3; grid-row: 5; }
-.slot-21 { grid-column: 4; grid-row: 5; }
-.slot-22 { grid-column: 5; grid-row: 5; }
+.slot-18 { grid-column: 1; grid-row: 5; background-color: #BCBCBC; }
+.slot-19 { grid-column: 2; grid-row: 5; background-color: #BCBCBC; }
+.slot-20 { grid-column: 3; grid-row: 5; background-color: #CACACA; }
+.slot-21 { grid-column: 4; grid-row: 5; background-color: #CCCCCC; }
+.slot-22 { grid-column: 5; grid-row: 5; background-color: #CCCCCC; }
 
-.slot-23 { grid-column: 3; grid-row: 6; }
-.slot-24 { grid-column: 4; grid-row: 6; }
-.slot-25 { grid-column: 5; grid-row: 6; }
+.slot-23 { grid-column: 3; grid-row: 6; background-color: #CACACA; }
+.slot-24 { grid-column: 4; grid-row: 6; background-color: #B4B9BF; }
+.slot-25 { grid-column: 5; grid-row: 6; background-color: #B4B9BF; }

@@ -18,12 +18,11 @@ import { useOcidQuery } from "@/hooks/apis/useOcidQuery";
 import { useCharacterQuery } from "@/hooks/apis/useCharacterQuery";
 
 export default function SearchPage() {
-  const { ocidState, setOcid } = useOcid();
+  const { setOcid } = useOcid();
   const searchParams = useSearchParams();
   const characterName = searchParams.get('name'); // 예: name="대리깨진사람"
 
   const { data: ocidData, isLoading: ocidLoading, error: ocidError } = useOcidQuery(characterName || "");
-  const { data: characterData, isLoading: characterLoading, error: characterError } = useCharacterQuery(ocidState);
 
   useEffect(() => {
     if (ocidData) {
@@ -31,17 +30,17 @@ export default function SearchPage() {
     }
   }, [ocidData]); // 초기 마운트시 ocidData & 업데이트
 
-  if (ocidLoading || characterLoading) {
+  if (ocidLoading) {
     return <Loading />
   }
   
-  if (ocidError || characterError) {
+  if (ocidError) {
     return <div>Error occurred while fetching data.</div>;
   }
 
   return (
     <div className={styles.mainDiv}>
-      <Character character={characterData} />
+      <Character />
       <Detail />
     </div>
   );

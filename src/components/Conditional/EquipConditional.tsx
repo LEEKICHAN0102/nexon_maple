@@ -16,6 +16,7 @@ import { usePetQuery } from "@/hooks/apis/usePetQuery";
 // store
 import useOcid from "@/store/ocid";
 import Navigation from "../Navigation/Navigation";
+import StarForce from "../Equipment/StarForce";
 
 export default function EquipConditional() {
   const { ocidState } = useOcid();

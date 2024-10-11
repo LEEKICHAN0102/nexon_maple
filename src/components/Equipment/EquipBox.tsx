@@ -1,12 +1,12 @@
 import Image, { StaticImageData } from 'next/image';
 import styles from "./equipment.module.css";
-import victory from "../../../public/addonevictory.jpg";
 
 interface EBoxProps {
   slotCoordinate: string;
   equipmentImage?: string | StaticImageData;
   potentialGrade?: string;
   altImage: string;
+  partName?: string;
 }
 
 export default function EquipBox({
@@ -14,6 +14,7 @@ export default function EquipBox({
   equipmentImage,
   potentialGrade,
   altImage,
+  partName,
 }: EBoxProps) {
   const gradeClassMap: { [key: string]: string } = {
     레전드리: styles.legendary,
@@ -27,12 +28,15 @@ export default function EquipBox({
 
   return (
     <div className={`${styles.equipmentSlot} ${slotCoordinate} ${gradeClass}`}>
-      <Image
-        width={30}
-        height={30}
-        src={equipmentImage ? equipmentImage : victory}
-        alt={altImage}
-      />
+      <span>{partName}</span>
+      {equipmentImage ? 
+        <Image
+          style={{zIndex: 1}}
+          width={30}
+          height={30}
+          src={equipmentImage}
+          alt={altImage}
+        /> : null}
     </div>
   );
 }

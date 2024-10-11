@@ -11,19 +11,19 @@ export default function SkillNavigation() {
           className={`${styles.listBox} ${selected === "LINK" ? styles.selected : ""}`} 
           onClick={() => onSelect("LINK")}
         >
-          링크 스킬
+          <span className={`${styles.listSpan} ${selected === "LINK" ? styles.selectedSpan : ""}`}>링크 스킬</span>
         </li>
         <li 
           className={`${styles.listBox} ${selected === "VMATRIX" ? styles.selected : ""}`} 
           onClick={() => onSelect("VMATRIX")}
         >
-          V 매트릭스
+          <span className={`${styles.listSpan} ${selected === "VMATRIX" ? styles.selectedSpan : ""}`}>V 매트릭스</span>
         </li>
         <li 
           className={`${styles.listBox} ${selected === "HEXAMATRIX" ? styles.selected : ""}`} 
           onClick={() => onSelect("HEXAMATRIX")}
         >
-          HEXA 매트릭스
+          <span className={`${styles.listSpan} ${selected === "HEXAMATRIX" ? styles.selectedSpan : ""}`}>HEXA 매트릭스</span>
         </li>
       </ul>
     </nav>

@@ -1,14 +1,20 @@
 import styles from "./equipment.module.css"
 import Image from "next/image";
 
-export default function EquipStatBox({data}: any) {
+import { IEProps } from "@/Types/Equipment";
+
+interface BoxProps {
+  characterEquipment: IEProps;
+}
+
+export default function EquipStatBox({ characterEquipment }: BoxProps) {
   return (
     <>
       <div className={styles.equipDetailBox}>
         <div className={styles.starForceBox}>
-          <span>★ {data.star} 성 ★</span>
-          <span>{}</span>
-          <span>{}</span>
+          <span>★ {characterEquipment.starforce} 성 ★</span>
+          <span>{characterEquipment.item_name} (+{characterEquipment.scroll_upgrade})</span>
+          <span>({characterEquipment.potential_option_grade} 아이템)</span>
         </div>
         <div className={styles.imageBox}>
           <span></span>

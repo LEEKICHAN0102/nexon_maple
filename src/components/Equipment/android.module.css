@@ -1,0 +1,74 @@
+/* 메인 컨테이너 Right */
+.androidContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 48px);
+  grid-template-rows: repeat(6, 48px);
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.androidColumn {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: #B8BFC4;
+  border: 2px solid #96A0A4;
+  border-radius: 10px;
+  padding: 5px;
+  max-width: 220px;
+}
+
+.androidSpan {
+  font-size: 12px;
+  font-weight: bold;
+  color: #5B5B5D;
+}
+
+/* 아이템 칸 */
+.androidSlot {
+  width: 48px;
+  height: 48px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.rotateText {
+  transform: rotate(90deg);
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  color: #E1E4E7;
+  filter: drop-shadow(0 0 2px rgba(243, 244, 243, 0.7));
+  margin-top: 30px;
+}
+
+/* 각 장비 슬롯의 grid 위치 지정 */
+.slot-1 { grid-column: 1; grid-row: 1; }
+.slot-2 { grid-column: 2; grid-row: 1; }
+.slot-3 { grid-column: 3; grid-row: 1; }
+
+.slot-4 { grid-column: 1; grid-row: 2; }
+.slot-5 { grid-column: 2; grid-row: 2; }
+.slot-6 { grid-column: 3; grid-row: 2; }
+
+.slot-7 { grid-column: 1; grid-row: 3; }
+.slot-8 { grid-column: 2; grid-row: 3; }
+.slot-9 { grid-column: 3; grid-row: 3; }
+
+.slot-10 { grid-column: 1; grid-row: 4; }
+.slot-11 { grid-column: 2; grid-row: 4; }
+.slot-12 { grid-column: 3; grid-row: 4; }
+
+.slot-13 { grid-column: 2; grid-row: 5; }
+.slot-14 { grid-column: 3; grid-row: 5; }
+
+.slot-15 { grid-column: 1; grid-row: 6; }
+.slot-16 { grid-column: 2; grid-row: 6; }
+.slot-17 { grid-column: 3; grid-row: 6; }
