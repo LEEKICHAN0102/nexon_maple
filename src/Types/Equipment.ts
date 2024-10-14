@@ -16,7 +16,7 @@ export interface AndroidProps {
   android_description: string;
 }
 
-interface ItemAddOption {
+export interface ItemAddOption {
   all_stat: string;
   armor: string;
   attack_power: string;
@@ -34,13 +34,15 @@ interface ItemAddOption {
   str: string;
 }
 
-interface ItemBaseOption extends ItemAddOption {}
+export interface ItemBaseOption extends ItemAddOption {
+  base_equipment_level: number;
+}
 
-interface ItemEtcOption extends Pick<ItemAddOption, 'armor' | 'attack_power' | 'dex' | 'int' | 'jump' | 'luk' | 'magic_power' | 'max_hp' | 'max_mp' | 'speed' | 'str'> {}
+export interface ItemEtcOption extends Pick<ItemAddOption, 'armor' | 'attack_power' | 'dex' | 'int' | 'jump' | 'luk' | 'magic_power' | 'max_hp' | 'max_mp' | 'speed' | 'str'> {}
 
-interface ItemStarForceOption extends ItemEtcOption {}
+export interface ItemStarForceOption extends ItemEtcOption {}
 
-interface ItemTotalOption extends ItemAddOption {}
+export interface ItemTotalOption extends ItemAddOption {}
 
 export interface DProps {
   

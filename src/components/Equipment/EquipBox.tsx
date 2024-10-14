@@ -1,11 +1,12 @@
 import Image, { StaticImageData } from 'next/image';
 import styles from "./equipment.module.css";
+import { IEProps } from '@/Types/Equipment';
 
 interface EBoxProps {
   slotCoordinate: string;
   equipmentImage?: string | StaticImageData;
   potentialGrade?: string;
-  altImage: string;
+  slotName: string;
   partName?: string;
 }
 
@@ -13,7 +14,7 @@ export default function EquipBox({
   slotCoordinate,
   equipmentImage,
   potentialGrade,
-  altImage,
+  slotName,
   partName,
 }: EBoxProps) {
   const gradeClassMap: { [key: string]: string } = {
@@ -35,7 +36,7 @@ export default function EquipBox({
           width={30}
           height={30}
           src={equipmentImage}
-          alt={altImage}
+          alt={slotName}
         /> : null}
     </div>
   );

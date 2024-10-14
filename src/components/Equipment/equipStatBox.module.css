@@ -1,0 +1,148 @@
+.detailCoveringBox {
+  border: 1px solid black;
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.equipDetailBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 5px;
+  gap: 1px;
+  border: 1px solid white;
+}
+
+.itemNameSpan {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemNameBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+}
+
+.itemNameBox p {
+  font-weight: bold;
+  font-size: 8px;
+}
+
+.itemImageBox {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  gap: 20px;
+  color: #EEC72E;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.itemImageBox img {
+  padding: 7px;
+  border-radius: 2px;
+  border: 1px solid yellow;
+  background-color: #9B9B9B;
+}
+
+.itemStatBox {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  font-weight: bolder;
+  font-size: 9px;
+}
+
+.divider img {
+  width: 100%;
+  height: auto;
+}
+
+.soulOptionBox {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  font-size: 10px;
+}
+
+
+.statSpan {
+  display: flex;
+  color: white;
+  align-items: center;
+  gap: 2px;
+}
+
+.totalOption {
+  color: #6abebe;
+}
+
+.baseOption {
+  color: white;
+}
+
+.addOption {
+  color: greenyellow;
+}
+
+.starForceOption {
+  color: yellow;
+}
+
+.etcOption {
+  color: plum;
+}
+
+.etcMinusOption {
+  color: red;
+}
+
+.potentialBox {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.gradeBox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.upgradeSpan {
+  display: flex;
+  gap: 5px;
+}
+
+.hammerSpan {
+  display: flex;
+}
+
+.textText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}

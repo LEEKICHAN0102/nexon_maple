@@ -6,4 +6,8 @@
   padding: 10px;
   gap: 2px;
   background-color: #CED6C7;
+  min-width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  width: auto;
 }

@@ -1,28 +1,22 @@
 import styles from './starForce.module.css';
 
+import Image from 'next/image';
+import fullStar from "@/../../public/icon/full_star_icon.png";
+
 interface SProps {
-  starCount: number;
+  starCount: string;
 }
 
 export default function StarForce({ starCount }: SProps) {
-  const totalStars = Array(25).fill(false).map((_, index) => index < starCount);
-
-  const starRows = [];
-  for (let i = 0; i < totalStars.length; i += 5) {
-    starRows.push(totalStars.slice(i, i + 5));
+  if (starCount === "0") {
+    return null;
   }
 
   return (
     <div className={styles.starContainer}>
-      {starRows.map((row, rowIndex) => (
-        <div key={rowIndex} className={styles.starRow}>
-          {row.map((isFilled, starIndex) => (
-            <span key={starIndex} className={isFilled ? styles.filledStar : styles.emptyStar}>
-              ★
-            </span>
-          ))}
-        </div>
-      ))}
+      <Image src={fullStar} alt="full_star" />
+        {starCount} 성
+      <Image src={fullStar} alt="full_star" />
     </div>
   );
 }

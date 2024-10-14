@@ -17,9 +17,6 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
   const arcaneSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('아케인심볼'));
   const authenticSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('어센틱심볼'));
 
-  console.log(characterSymbol, " 심볼 정보 ");
-  console.log(selected);
-
   return (
     <div className={styles.symbolMain}>
       <SymbolHandler />
