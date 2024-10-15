@@ -1,6 +1,8 @@
 import styles from "./linkSkill.module.css";
 import { LinkProps } from "@/Types/Link";
 
+// import SkillDetail from "../Detail/SkillDetail";
+
 interface CharacterLinkProps {
   characterLink: LinkProps;
 }

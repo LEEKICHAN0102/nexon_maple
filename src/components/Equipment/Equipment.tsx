@@ -4,8 +4,8 @@ import useCharacterEquip from "@/hooks/useCharacterItems";
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';
 import useEquipPotentialGrade from '@/hooks/useEquipGrade';
-
 import { equipmentList } from '@/constant/equipList';
+import EquipStatBox from './EquipStatBox';
 
 interface EquipmentProps {
   characterEquipment: EquipProps;
@@ -13,8 +13,13 @@ interface EquipmentProps {
 }
 
 export default function Equipment({ characterEquipment, characterAndroid }: EquipmentProps) {
-  const equip = useCharacterEquip(characterEquipment, "equip"); // 2번째 인자로 (캐시, 안드로이드, 사용자 장비 구분함)
+  const [selectedEquip, setSelectedEquip] = useState<number | null>(null); // 클릭된 장비의 인덱스를 저장
+  const equip = useCharacterEquip(characterEquipment, "equip");
   const grade = useEquipPotentialGrade(characterEquipment);
+
+  const handleEquipClick = (index: number) => {
+    setSelectedEquip(prevIndex => (prevIndex === index ? null : index));
+  };
 
   return (
     <div className={styles.equipColumn}>
@@ -28,9 +33,17 @@ export default function Equipment({ characterEquipment, characterAndroid }: Equi
             potentialGrade={equipItem.isAndroid ? undefined : grade[equipItem.name]}
             slotName={equipItem.name}
             partName={equipItem.partName}
+            onClick={() => equipItem.equipNum !== undefined && handleEquipClick(equipItem.equipNum)}
           />
         ))}
       </div>
+
+      {/* 클릭된 장비의 정보만 표시 */}
+      {selectedEquip !== null && (
+        <div className={styles.statBoxContainer}>
+          <EquipStatBox characterEquipment={characterEquipment.item_equipment[selectedEquip]} />
+        </div>
+      )}
     </div>
   );
 }

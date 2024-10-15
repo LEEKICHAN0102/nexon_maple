@@ -4,7 +4,7 @@ import Image from 'next/image';
 import fullStar from "@/../../public/icon/full_star_icon.png";
 
 interface SProps {
-  starCount: string;
+  starCount?: string;
 }
 
 export default function StarForce({ starCount }: SProps) {

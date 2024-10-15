@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 import styles from "./equipment.module.css";
-import { IEProps } from '@/Types/Equipment';
+import { EquipProps } from '@/Types/Equipment';
+import EquipStatBox from './EquipStatBox';
 
 interface EBoxProps {
   slotCoordinate: string;
@@ -8,6 +9,7 @@ interface EBoxProps {
   potentialGrade?: string;
   slotName: string;
   partName?: string;
+  onClick: () => void;
 }
 
 export default function EquipBox({
@@ -16,6 +18,7 @@ export default function EquipBox({
   potentialGrade,
   slotName,
   partName,
+  onClick,
 }: EBoxProps) {
   const gradeClassMap: { [key: string]: string } = {
     레전드리: styles.legendary,
@@ -24,15 +27,14 @@ export default function EquipBox({
     레어: styles.rare,
   };
 
-  // potentialGrade가 없으면 'none' 클래스를 적용
   const gradeClass = potentialGrade ? gradeClassMap[potentialGrade] || styles.none : styles.none;
 
   return (
-    <div className={`${styles.equipmentSlot} ${slotCoordinate} ${gradeClass}`}>
-      <span>{partName}</span>
+    <div className={`${styles.equipmentSlot} ${slotCoordinate} ${gradeClass}`} onClick={onClick}>
+      <span className={styles.equipPartSpan}>{partName}</span>
       {equipmentImage ? 
         <Image
-          style={{zIndex: 1}}
+          style={{ zIndex: 1 }}
           width={30}
           height={30}
           src={equipmentImage}

@@ -66,7 +66,7 @@ export default function StatText({
         <div className={styles.textText}>
           <div className={styles.upgradeSpan}>업그레이드 가능 횟수 : {upgradableCount}<span style={{ color : "rgb(255, 204, 2)"}}> (복구 가능 횟수 : {upgradeResilience})</span></div>
           <div className={styles.hammerSpan}>{goldenHammer === "적용"  && <span>황금 망치 제련 적용</span>}</div>
-          <div style={{ color: "rgb(255, 204, 2)"}}>가위 사용 가능 횟수 : {cuttableCount}</div>
+          {Number(cuttableCount) !== 255 && <div style={{ color: "rgb(255, 204, 2)"}}>가위 사용 가능 횟수 : {cuttableCount}</div>}
         </div>
     </div>
   );

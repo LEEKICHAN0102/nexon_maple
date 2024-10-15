@@ -14,9 +14,6 @@ export default function Ability({ characterAbility }: any) {
     }
   });
 
-  console.log("어빌 보기:", characterAbility);
-  console.log("적용 중인 어빌 보기:", currentPreset);
-
   const getPresetData = (presetNo: number) => {
     return {
       preset: characterAbility?.[`ability_preset_${presetNo}`] || {

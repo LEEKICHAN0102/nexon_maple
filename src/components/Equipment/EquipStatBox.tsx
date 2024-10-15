@@ -48,7 +48,7 @@ export default function EquipStatBox({ characterEquipment }: BoxProps) {
                 <span style={{ color: "rgb(204, 255, 0)"}}>{formattedSoulName}</span>
               )}
               {characterEquipment.item_name}
-              (+{characterEquipment.scroll_upgrade})
+              {Number(characterEquipment.scroll_upgrade) > 0 && `(+${characterEquipment.scroll_upgrade})`} {/* 문자열을 숫자로 변환 */}
             </span>
             <p>({characterEquipment.potential_option_grade} 아이템)</p>
           </div>
