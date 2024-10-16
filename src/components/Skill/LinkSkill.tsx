@@ -1,30 +1,41 @@
 import styles from "./linkSkill.module.css";
-import { LinkProps } from "@/Types/Link";
-
-// import SkillDetail from "../Detail/SkillDetail";
+import { LinkProps, LinkObjectProps } from "@/Types/Link";
+import Link from "./Detail/Link";
+import { useState } from "react";
 
 interface CharacterLinkProps {
   characterLink: LinkProps;
 }
 
 export default function LinkSkill({ characterLink }: CharacterLinkProps) {
-  console.log("캐릭터 링크 보기:", characterLink);
+  const [selectedLink, setSelectedLink] = useState<LinkObjectProps | null>(null);
 
-  return(
+  const handleLinkClick = (link: LinkObjectProps) => {
+    setSelectedLink((prev) => (prev === link ? null : link));
+  };
+
+  return (
     <div className={styles.skillMain} draggable={true}>
       <div className={styles.skillGrid}>
-        {characterLink.character_link_skill.map((skill, index) => (
-          <div key={index} className={styles.skillBox}>
+        {characterLink.character_link_skill.map((link, index) => (
+          <div key={index} className={styles.skillBox} onClick={() => handleLinkClick(link)}>
             <div className={styles.imgBox}>
-              <img src={skill.skill_icon} alt={skill.skill_name} />
+              <img src={link.skill_icon} alt={link.skill_name} />
             </div>
             <div className={styles.textBox}>
-              <div className={styles.skillName}>{skill.skill_name}</div>
-              <span className={styles.skillLevel}>{skill.skill_level}</span>
+              <div className={styles.skillName}>{link.skill_name}</div>
+              <span className={styles.skillLevel}>{link.skill_level}</span>
             </div>
           </div>
         ))}
       </div>
+
+      {/* 선택된 스킬 정보 표시 */}
+      {selectedLink && (
+        <div className={styles.skillBoxContainer}>
+          <Link characterLink={selectedLink} />
+        </div>
+      )}
     </div>
-  )
+  );
 }

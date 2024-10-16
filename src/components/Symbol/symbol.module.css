@@ -52,12 +52,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
   border-radius: 5px;
   background-color: #6466A3;
   width: 200px;
+  height: 300px;
   gap: 20px;
+}
+
+.authenticColor {
+  background-color: #2f76c2;
 }
 
 .symbolSubSpan {
@@ -101,10 +106,29 @@
 .symbolLevel {
   font-size: 10px;
   font-weight: bold;
-  color: rgb(222, 219, 219);
+  color: rgb(237, 234, 234);
+}
+
+.symbolGrowth {
+  font-size: 0.4rem;
+  font-weight: bold;
+  color: rgb(237, 234, 234);
 }
 
 .selected {
   background-color: #36B8D0;
   color: white;
+}
+
+.authenticSymbolDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: #A5A4C1;
+  padding: 7px;
+  border-radius: 5px;
+  height: 80px;
+  clip-path: polygon(50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%, 0% 10%);
 }

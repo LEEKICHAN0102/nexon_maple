@@ -9,7 +9,7 @@ interface EBoxProps {
   potentialGrade?: string;
   slotName: string;
   partName?: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export default function EquipBox({

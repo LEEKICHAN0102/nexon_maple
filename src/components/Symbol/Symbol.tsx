@@ -16,6 +16,9 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
   const { selected } = useSymbolStore();
   const arcaneSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('아케인심볼'));
   const authenticSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('어센틱심볼'));
+  const grandAuthenticSymbols = characterSymbol.symbol.filter(symbol => symbol.symbol_name.includes('그랜드'));
+
+  console.log(characterSymbol);
 
   return (
     <div className={styles.symbolMain}>
@@ -27,13 +30,14 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
           <span className={styles.symbolSubSpan}>ARCANE EQUIPMENT</span>
           <div className={styles.symbolSpanDiv}>
             <span className={styles.symbolMainSpan}>ARC + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_force), 0)}</span>
-            <span className={styles.symbolMainSpan}>주스탯 + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_str), 0)}</span>
+            <span className={styles.symbolMainSpan}>주스탯 + {arcaneSymbols.reduce((acc, symbol) => acc + Number(symbol.symbol_str) + Number(symbol.symbol_dex) + Number(symbol.symbol_int) + Number(symbol.symbol_luk), 0)}</span>
           </div>
           <div className={styles.symbolDivContent}>
             {arcaneSymbols.map((symbol, index) => (
               <div key={index} className={styles.symbolDiv}>
                 <img src={symbol.symbol_icon} alt={symbol.symbol_name} />
                 <span className={styles.symbolLevel}>Lv. {symbol.symbol_level}</span>
+                {symbol.symbol_level === 20 ? <span className={styles.symbolGrowth}>MAX</span> : <span className={styles.symbolGrowth}>{symbol.symbol_growth_count} / {symbol.symbol_require_growth_count}</span>}
               </div>
             ))}
           </div>
@@ -42,17 +46,18 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
 
       {/* AUTHENTIC 상태일 때만 어센틱 심볼 출력 */}
       {selected === "AUTHENTIC" && (
-        <div className={styles.symbolContent}>
+        <div className={`${styles.symbolContent} ${styles.authenticColor}`}>
           <span className={styles.symbolSubSpan}>AUTHENTIC EQUIPMENT</span>
           <div className={styles.symbolSpanDiv}>
             <span className={styles.symbolMainSpan}>AUT + {authenticSymbols.reduce((aut, symbol) => aut + Number(symbol.symbol_force), 0)}</span>
-            <span className={styles.symbolMainSpan}>주스탯 + {authenticSymbols.reduce((aut, symbol) => aut + Number(symbol.symbol_str), 0)}</span>
+            <span className={styles.symbolMainSpan}>주스탯 + {authenticSymbols.reduce((aut, symbol) => aut + Number(symbol.symbol_str) + Number(symbol.symbol_dex) + Number(symbol.symbol_int) + Number(symbol.symbol_luk), 0)}</span>
           </div>
           <div className={styles.symbolDivContent}>
             {authenticSymbols.map((symbol, index) => (
-              <div key={index} className={styles.symbolDiv}>
+              <div key={index} className={styles.authenticSymbolDiv}>
                 <img src={symbol.symbol_icon} alt={symbol.symbol_name} />
                 <span className={styles.symbolLevel}>Lv. {symbol.symbol_level}</span>
+                {symbol.symbol_level === 11 ? <span className={styles.symbolGrowth}>MAX</span> : <span className={styles.symbolGrowth}>{symbol.symbol_growth_count} / {symbol.symbol_require_growth_count}</span>}
               </div>
             ))}
           </div>
