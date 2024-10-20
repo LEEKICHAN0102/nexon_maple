@@ -1,9 +1,8 @@
 import styles from "./equipStatBox.module.css";
 
-import { statKeys } from "@/constant/equipList";
+import { statKeys } from "@/constants/equipList";
 
-import {
-  ItemTotalOption,
+import {ItemTotalOption,
   ItemBaseOption,
   ItemAddOption,
   ItemStarForceOption,
