@@ -22,8 +22,6 @@ export default function Symbol({ characterSymbol }: SymbolsProps) {
 
   const [isGrandAuthentic, setIsGrandAuthentic] = useState(false);
 
-  console.log(characterSymbol, "심볼 정보");
-
   const toggleGrandAuthentic = () => {
     setIsGrandAuthentic((prev) => !prev);
   };

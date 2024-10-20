@@ -1,33 +1,40 @@
-import styles from "../components/Equipment/equipment.module.css";
 import hair_icon from "../../public/icon/hair-icon.png"
 import face_icon from "../../public/icon/face-icon.png"
 
-export const equipmentList = [
-  { slot: 1, name: "반지4", partName: "RING" , equipNum: 14 },
-  { slot: 2, name: "모자", partName: "CAP" , equipNum: 0 },
-  { slot: 3, name: "엠블렘", partName: "EMBLEM" , equipNum: 22 },
-  { slot: 4, name: "반지3", partName: "RING" , equipNum: 13 },
-  { slot: 5, name: "펜던트2", partName: "PENDENT" , equipNum: 23 },
-  { slot: 6, name: "얼굴장식", partName: "FORE" , equipNum: 1 },
-  { slot: 7, name: "뱃지", partName: "BADGE" , equipNum: 21 },
-  { slot: 8, name: "반지2", partName: "RING" , equipNum: 12 },
-  { slot: 9, name: "펜던트", partName: "PENDENT" , equipNum: 15 },
-  { slot: 10, name: "눈장식", partName: "EYE" , equipNum: 2 },
-  { slot: 11, name: "귀고리", partName: "EAR" , equipNum: 3 },
-  { slot: 12, name: "훈장", partName: "MEDAL" , equipNum: 16 },
-  { slot: 13, name: "반지1", partName: "RING" , equipNum: 11 },
-  { slot: 14, name: "무기", partName: "WEAPON" , equipNum: 10 },
-  { slot: 15, name: "상의", partName: "CLOTHES" , equipNum: 4 },
-  { slot: 16, name: "어깨장식", partName: "SHOULDER" , equipNum: 18 },
-  { slot: 17, name: "보조무기", partName: "SUB WEP" , equipNum: 9 },
-  { slot: 18, name: "포켓 아이템", partName: "POCKET" , equipNum: 19 },
-  { slot: 19, name: "벨트", partName: "BELT" , equipNum: 17 },
-  { slot: 20, name: "하의", partName: "PANTS" , equipNum: 5 },
-  { slot: 21, name: "장갑", partName: "GLOVES" , equipNum: 7 },
-  { slot: 22, name: "망토", partName: "CAPE" , equipNum: 8 },
-  { slot: 23, name: "신발", partName: "SHOES" , equipNum: 6 },
-  { slot: 24, name: "안드로이드", partName: "ANDROID", isAndroid: true },
-  { slot: 25, name: "기계 심장", partName: "HEART" , equipNum: 20 },
+export interface EquipmentListItem {
+  slot: number;
+  name: string;
+  partName: string;
+  equipNum?: number;
+  isAndroid?: boolean;
+}
+
+export const equipmentList: EquipmentListItem[] = [
+  { slot: 0, name: "반지4", partName: "RING" },
+  { slot: 1, name: "모자", partName: "CAP"},
+  { slot: 2, name: "엠블렘", partName: "EMBLEM" },
+  { slot: 3, name: "반지3", partName: "RING" },
+  { slot: 4, name: "펜던트2", partName: "PENDENT" },
+  { slot: 5, name: "얼굴장식", partName: "FORE"},
+  { slot: 6, name: "뱃지", partName: "BADGE" },
+  { slot: 7, name: "반지2", partName: "RING" },
+  { slot: 8, name: "펜던트", partName: "PENDENT" },
+  { slot: 9, name: "눈장식", partName: "EYE"},
+  { slot: 10, name: "귀고리", partName: "EAR"},
+  { slot: 11, name: "훈장", partName: "MEDAL" },
+  { slot: 12, name: "반지1", partName: "RING" },
+  { slot: 13, name: "무기", partName: "WEAPON" },
+  { slot: 14, name: "상의", partName: "CLOTHES"},
+  { slot: 15, name: "어깨장식", partName: "SHOULDER" },
+  { slot: 16, name: "보조무기", partName: "SUB WEP"},
+  { slot: 17, name: "포켓 아이템", partName: "POCKET" },
+  { slot: 18, name: "벨트", partName: "BELT" },
+  { slot: 19, name: "하의", partName: "PANTS"},
+  { slot: 20, name: "장갑", partName: "GLOVES"},
+  { slot: 21, name: "망토", partName: "CAPE"},
+  { slot: 22, name: "신발", partName: "SHOES"},
+  { slot: 23, name: "안드로이드", partName: "ANDROID", isAndroid: true },
+  { slot: 24, name: "기계 심장", partName: "HEART" },
 ];
 
 export const cashItemList = [
