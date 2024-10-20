@@ -2,7 +2,7 @@ import styles from "./cashItem.module.css";
 import EquipBox from "./EquipBox";
 import { CashProps } from "@/Types/CashItem";
 import useCharacterItems from "@/hooks/useCharacterItems";
-import { cashItemList } from "@/constant/equipList";
+import { cashItemList } from "@/constants/equipList";
 
 interface CashItemProps {
   characterCash: CashProps;

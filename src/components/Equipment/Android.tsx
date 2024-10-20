@@ -2,7 +2,7 @@ import styles from "./android.module.css";
 import EquipBox from "./EquipBox";
 
 import { AndroidProps } from "@/Types/Android";
-import { androidItemList } from "@/constant/equipList";
+import { androidItemList } from "@/constants/equipList";
 import useCharacterItems from "@/hooks/useCharacterItems";
 
 interface CharacterAndroidProps {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, NEXON_API_KEY } from "@/constant/constant";
+import { BASE_URL, NEXON_API_KEY } from "@/constants/constant";
 
 const fetchData = async (endpoint: string, params: Record<string, string>, errorMessage: string) => {
   try {

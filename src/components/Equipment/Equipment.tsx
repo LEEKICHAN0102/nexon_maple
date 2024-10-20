@@ -3,7 +3,7 @@ import { EquipProps, AndroidProps } from '@/Types/Equipment';
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';
 import useEquipPotentialGrade from '@/hooks/useEquipGrade';
-import { equipmentList } from '@/constant/equipList';
+import { equipmentList } from '@/constants/equipList';
 import EquipStatBox from './EquipStatBox';
 
 interface EquipmentProps {
