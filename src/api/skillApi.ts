@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, NEXON_API_KEY } from "@/constant/constant";
+import { BASE_URL, NEXON_API_KEY } from "@/constants/constant";
 
 export const getSkillInfo = async (ocid: string, character_skill_grade: number) => {
   try {
