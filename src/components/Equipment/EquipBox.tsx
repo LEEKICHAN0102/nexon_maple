@@ -1,7 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
 import styles from "./equipment.module.css";
-import { EquipProps } from '@/Types/Equipment';
-import EquipStatBox from './EquipStatBox';
 
 interface EBoxProps {
   slotCoordinate: string;
@@ -9,6 +7,7 @@ interface EBoxProps {
   potentialGrade?: string;
   slotName: string;
   partName?: string;
+  isCursor?: boolean;
   onClick?: () => void;
 }
 
@@ -18,6 +17,7 @@ export default function EquipBox({
   potentialGrade,
   slotName,
   partName,
+  isCursor,
   onClick,
 }: EBoxProps) {
   const gradeClassMap: { [key: string]: string } = {
@@ -30,16 +30,17 @@ export default function EquipBox({
   const gradeClass = potentialGrade ? gradeClassMap[potentialGrade] || styles.none : styles.none;
 
   return (
-    <div className={`${styles.equipmentSlot} ${slotCoordinate} ${gradeClass}`} onClick={onClick}>
+    <div className={`${styles.equipmentSlot} ${slotCoordinate} ${gradeClass} ${isCursor ? styles.cursor : ""}`} onClick={onClick}>
       <span className={styles.equipPartSpan}>{partName}</span>
       {equipmentImage ? 
-        <Image
-          style={{ zIndex: 1 }}
-          width={30}
-          height={30}
-          src={equipmentImage}
-          alt={slotName}
-        /> : null}
+        <div className={styles.imageContainer}>
+          <Image
+            layout="fill"
+            objectFit="contain"
+            src={equipmentImage}
+            alt={slotName || "Equipment Alt"}
+          />
+        </div> : null}
     </div>
   );
 }

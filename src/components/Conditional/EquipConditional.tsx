@@ -8,31 +8,32 @@ import Loading from "../Loading/Loading";
 import Pet from "../Pet/Pet";
 
 // query
-import { useEquipmentQuery } from "@/hooks/apis/useEquipQuery";
-import { useAndroidQuery } from "@/hooks/apis/useAndroidQuery";
-import { useSymbolQuery } from "@/hooks/apis/useSymbolQuery";
-import { usePetQuery } from "@/hooks/apis/usePetQuery";
+import { useEquipmentQueries } from "@/hooks/apis/Equipment/useEquipmentQueries";
 
 // store
 import useOcid from "@/store/ocid";
 import Navigation from "../Navigation/Navigation";
-import StarForce from "../Equipment/StarForce";
 
 export default function EquipConditional() {
   const { ocidState } = useOcid();
 
-  const { data: equipData, isLoading: equipLoading, error: equipError } = useEquipmentQuery(ocidState);
-  const { data: androidData, isLoading: androidLoading, error: androidError } = useAndroidQuery(ocidState);
-  const { data: symbolData, isLoading: symbolLoading, error: symbolError } = useSymbolQuery(ocidState);
-  const { data: petData, isLoading: petLoading, error: petError } = usePetQuery(ocidState);
+  const results = useEquipmentQueries(ocidState);
 
-  if (equipLoading || androidLoading || symbolLoading || petLoading) {
+  const isLoading = results.some(result => result.isLoading);
+  const isError = results.some(result => result.isError);
+
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (equipError || androidError || symbolError || petError) {
+  if (isError) {
     return <div>Error occurred while fetching data.</div>;
   }
+  
+  const equipData = results[0].data;
+  const androidData = results[1].data;
+  const symbolData = results[2].data;
+  const petData = results[3].data;
 
   return(
     <main className={styles.equipMain}>

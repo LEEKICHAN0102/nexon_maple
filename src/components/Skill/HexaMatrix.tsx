@@ -1,30 +1,43 @@
 import { useState } from "react";
-
 import styles from "./linkSkill.module.css";
-
-import { HexaProps, HexaObjectProps } from "@/Types/Hexa";
+import { HexaProps, HexaObjectProps, HexaStatProps } from "@/Types/Hexa";
 import Hexa from "./Detail/Hexa";
+import HexaStat from "./Detail/HexaStat";
 
 interface CharacterHexaProps {
-  characterHexa: HexaProps
+  characterHexa: HexaProps;
+  characterHexaStat: HexaStatProps;
 }
 
-export default function HexaMatrix({ characterHexa }: CharacterHexaProps) {
+export default function HexaMatrix({ characterHexa, characterHexaStat }: CharacterHexaProps) {
   const [selectedHexa, setSelectedHexa] = useState<HexaObjectProps | null>(null);
-
-  console.log(characterHexa);
+  const [selectedHexaStat, setSelectedHexaStat] = useState<HexaStatProps | null>(null);
 
   const handleHexaClick = (hexa: HexaObjectProps) => {
     setSelectedHexa((prev) => (prev === hexa ? null : hexa));
   };
 
-  return(
+  const handleHexaStatClick = () => {
+    setSelectedHexaStat((prev) => (prev ? null : characterHexaStat));
+  };
+
+  return (
     <div className={styles.skillMain}>
       <div className={styles.skillGrid}>
         {characterHexa.character_skill.map((hexa, index) => (
-          <div key={index} className={styles.skillBox} onClick={() => handleHexaClick(hexa)}>
+          <div
+            key={index}
+            className={styles.skillBox}
+            onClick={() => {
+              if (hexa.skill_name === "HEXA 스탯") {
+                handleHexaStatClick();
+              } else {
+                handleHexaClick(hexa);
+              }
+            }}
+          >
             <div className={styles.imgBox}>
-              <img src={hexa.skill_icon} alt={hexa.skill_name} /> 
+              <img src={hexa.skill_icon} alt={hexa.skill_name} />
             </div>
             <div className={styles.textBox}>
               <div className={styles.skillName}>{hexa.skill_name}</div>
@@ -34,12 +47,17 @@ export default function HexaMatrix({ characterHexa }: CharacterHexaProps) {
         ))}
       </div>
 
-      {/* 선택된 스킬 정보 표시 */}
       {selectedHexa && (
-      <div className={styles.skillBoxContainer}>
-        <Hexa characterHexa={selectedHexa} />
-      </div>
+        <div className={styles.skillBoxContainer}>
+          <Hexa characterHexa={selectedHexa} />
+        </div>
+      )}
+
+      {selectedHexaStat && (
+        <div className={styles.statBoxContainer}>
+          <HexaStat characterHexaStat={selectedHexaStat} />
+        </div>
       )}
     </div>
-  )
+  );
 }

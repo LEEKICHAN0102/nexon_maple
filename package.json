@@ -1,5 +1,5 @@
 {
-  "name": "nexon_maple",
+  "name": "nexon_maple_ssak_ssak",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,6 @@
     "react-icons": "^5.2.1",
     "react-query": "^3.39.3",
     "react-spinners": "^0.14.1",
-    "react-toastify": "^10.0.5",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

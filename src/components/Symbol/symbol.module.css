@@ -58,11 +58,43 @@
   background-color: #6466A3;
   width: 200px;
   height: 300px;
-  gap: 20px;
+  gap: 10px;
+}
+
+.authenticToggle {
+  margin-right: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+  font-size: 7px;
+  cursor: pointer;
+  color: black;
+}
+
+.authenticToggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 10px;
+  padding: 1px;
+  background-color: white;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgb(123, 219, 88);
+    transition: 0.3s ease-in-out;
+  }
 }
 
 .authenticColor {
   background-color: #2f76c2;
+}
+
+.grandAuthenticColor {
+  transition: 0.3 ease-in-out;
+  background-color: #8d489f;
 }
 
 .symbolSubSpan {
@@ -126,7 +158,7 @@
   align-items: center;
   justify-content: center;
   gap: 3px;
-  background-color: #A5A4C1;
+  background-color: #867feb;
   padding: 7px;
   border-radius: 5px;
   height: 80px;

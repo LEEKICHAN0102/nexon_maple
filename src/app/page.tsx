@@ -28,7 +28,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.mainDiv}>
         <Image className={styles.mainImage} src={MainImage} alt="소멸의 여로" /> 
-        <h1 className={styles.mainTitle}>NEXON_MAPLE OPEN API</h1>
+        <h1 className={styles.mainTitle}>NEXON_MAPLE SSAK SSAK</h1>
         <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
           <input
             className={styles.mainInput}
@@ -38,6 +38,10 @@ export default function Home() {
           />
           <button className={styles.mainButton} type="submit">검색</button>
         </form>
+        <div className={styles.footerText}>
+          <span>This website is designed for study purposes and does not generate revenue</span>
+          <span>Data based on NEXON Open API</span>
+        </div>
       </div>
     </main>
   );

@@ -11,14 +11,12 @@ interface CharacterVProps {
 
 export default function VMatrix({ characterV }: CharacterVProps) {
   // 메인 V매트릭스 부터 출력을 위한 배열 reverse()
-  const rCharacterV = [...characterV.character_skill].reverse();
+  const rCharacterV = [...characterV?.character_skill].reverse();
   const [selectedV, setSelectedV] = useState<VObjectProps | null>(null);
 
   const handleLinkClick = (v: VObjectProps) => {
     setSelectedV((prev) => (prev === v ? null : v));
   };
-
-  console.log(rCharacterV, "5차");
   
   return(
     <div className={styles.skillMain}>

@@ -9,24 +9,33 @@ import useOcid from "@/store/ocid";
 import { useSkillNavStore } from "@/store/nav";
 
 // queries
-import { useLinkQuery } from "@/hooks/apis/useLinkQuery"
-import { useVQuery } from "@/hooks/apis/useVQuery";
-import { useHexaQuery } from "@/hooks/apis/useHexaQuery";
+import { useLinkQuery } from "@/hooks/apis/Skill/useLinkQuery"
+import { useVQuery } from "@/hooks/apis/Skill/useVQuery";
+import { useHexaQuery } from "@/hooks/apis/Skill/useHexaQuery";
+import { useHexaStatQuery } from "@/hooks/apis/Skill/useHexaStatQuery";
+import { useSkillQueries } from "@/hooks/apis/Skill/useSkillQueries";
 
 export default function SkillDetail() {
   const { selected } = useSkillNavStore();
   const { ocidState } = useOcid();
-  const { data: linkData, isLoading: linkLoading, error: linkError } = useLinkQuery(ocidState);
-  const { data: vData, isLoading: vLoading, error: vError } = useVQuery(ocidState, 5);
-  const { data: hexaData, isLoading: hexaLoading, error: hexaError } = useHexaQuery(ocidState, 6);
 
-  if(linkLoading || vLoading || hexaLoading) {
+  const results = useSkillQueries(ocidState, 5, 6);
+
+  const isLoading = results.some(result => result.isLoading);
+  const isError = results.some(result => result.isError);
+
+  if (isLoading) {
     return <Loading />;
   }
 
-  if(linkError || vError || hexaError) {
+  if (isError) {
     return <div>Error occurred while fetching data.</div>;
   }
+  
+  const linkData = results[0].data;
+  const vData = results[1].data;
+  const hexaData = results[2].data;
+  const hexaStatData = results[3].data;
 
   switch(selected) {
     case "LINK":
@@ -34,6 +43,6 @@ export default function SkillDetail() {
     case "VMATRIX":
       return <VMatrix characterV={vData} />   
     case "HEXAMATRIX":
-      return <HexaMatrix characterHexa={hexaData} />
+      return <HexaMatrix characterHexa={hexaData} characterHexaStat={hexaStatData} />
   }
 }

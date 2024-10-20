@@ -1,30 +1,29 @@
+import { useCharacterQueries } from "@/hooks/apis/Character/useCharacterQureis";
 import useOcid from "@/store/ocid";
 import styles from "./character.module.css";
-
-// queries
-import { useCharacterQuery } from "@/hooks/apis/useCharacterQuery";
-import { useDojangQuery } from "@/hooks/apis/Character/useDojangQuery";
-import { useUnionQuery } from "@/hooks/apis/Character/useUnionQuery";
-import { usePopularQuery } from "@/hooks/apis/Character/usePopularQuery";
-
-import {
-  UnionProps,
-  DojangProps,
-  PopularProps,
-} from "@/Types/Character/Character";
-import { CharacterProps } from "@/Types/Character";
+import Loading from "../Loading/Loading";
 
 export default function Character() {
   const { ocidState } = useOcid();
+  const results = useCharacterQueries(ocidState);
 
-  const { data: characterData, isLoading: characterLoading, error: characterError } = useCharacterQuery(ocidState);
-  const { data: unionData, isLoading: unionLoading, error: unionError } = useUnionQuery(ocidState);
-  const { data: dojangData, isLoading: dojangLoading, error: dojangError } = useDojangQuery(ocidState);
-  const { data: popularData, isLoading: popularLoading, error: popularError } = usePopularQuery(ocidState);
+  const isLoading = results.some(result => result.isLoading);
+  const isError = results.some(result => result.isError);
 
-  console.log(characterData, "epdlxj");
+  if (isLoading) {
+    return <Loading />;
+  }
 
-  return(
+  if (isError) {
+    return <div>Error occurred while fetching data.</div>;
+  }
+  
+  const characterData = results[0].data;
+  const unionData = results[1].data;
+  const dojangData = results[2].data;
+  const popularData = results[3].data;
+
+  return (
     <div className={styles.characterInfo}>
       <p className={styles.mainTitle}>CHARACTER INFO</p>
       <div className={styles.mainContent}>
@@ -45,20 +44,20 @@ export default function Character() {
         <div className={styles.center}>
           <div className={styles.levelBox}>Lv. {characterData?.character_level}</div>
           <div className={styles.imageBox}>
-            <img src={`${characterData?.character_image}`} alt="대표 이미지" style={{width: "130px", height: "130px"}} />
+            <img src={`${characterData?.character_image}`} alt="대표 이미지" style={{ width: "130px", height: "130px" }} />
             <div className={styles.nameDiv}>{characterData?.character_name}</div>
           </div>
         </div>
         <div className={styles.right}>
-            <div className={`${styles.borderBox} ${styles.blueBack}`}>길드</div>
-            <div className={styles.borderBox}>길드
-              <span>{characterData?.character_guild_name}</span>
-            </div>
-            <div className={styles.borderBox}>연합
-              <span>{characterData?.character_guild_name}</span>
-            </div>
+          <div className={`${styles.borderBox} ${styles.blueBack}`}>길드</div>
+          <div className={styles.borderBox}>길드
+            <span>{characterData?.character_guild_name || '없음'}</span>
+          </div>
+          <div className={styles.borderBox}>연합
+            <span>{characterData?.character_union_name || '없음'}</span>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

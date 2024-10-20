@@ -8,9 +8,7 @@ import Stat from "../Stat/Stat";
 import Loading from "../Loading/Loading";
 
 // query
-import { useStatQuery } from "@/hooks/apis/useStatQuery";
-import { useHyperQuery } from "@/hooks/apis/useHyperQuery";
-import { useAbilityQuery } from "@/hooks/apis/useAbilityQuery";
+import { useStatQueries } from "@/hooks/apis/Stat/useStatQueries";
 
 // store
 import useOcid from "@/store/ocid";
@@ -19,17 +17,22 @@ import Navigation from "../Navigation/Navigation";
 export default function StatConditional() {
   const { ocidState } = useOcid();
 
-  const { data: statData, isLoading: statLoading, error: statError } = useStatQuery(ocidState);
-  const { data: hyperData, isLoading: hyperLoading, error: hyperError } = useHyperQuery(ocidState);
-  const { data: abilityData, isLoading: abilityLoading, error: abilityError } = useAbilityQuery(ocidState);
+  const results = useStatQueries(ocidState);
 
-  if (statLoading || hyperLoading || abilityLoading) {
+  const isLoading = results.some(result => result.isLoading);
+  const isError = results.some(result => result.isError);
+
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (statError || hyperError || abilityError) {
+  if (isError) {
     return <div>Error occurred while fetching data.</div>;
   }
+
+  const statData = results[0].data;
+  const abilityData = results[1].data;
+  const hyperData = results[2].data;
 
   return(
     <main className={styles.statMain}>

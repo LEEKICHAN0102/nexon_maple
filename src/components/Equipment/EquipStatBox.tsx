@@ -17,7 +17,7 @@ interface BoxProps {
 }
 
 export default function EquipStatBox({ characterEquipment }: BoxProps) {
-  const soulName = characterEquipment.soul_name;
+  const soulName = characterEquipment?.soul_name;
   const formattedSoulName = soulName?.split('의')[0] + "의"; // 진 힐라, 카오스 블러디 퀸 등 예외 떄문에 "의" split 으로 처리
 
   const getItemGrade = (grade: string) => {
