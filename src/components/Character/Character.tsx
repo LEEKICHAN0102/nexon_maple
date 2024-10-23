@@ -10,7 +10,7 @@ export default function Character() {
   const isLoading = results.some(result => result.isLoading);
   const isError = results.some(result => result.isError);
 
-  if (isLoading) {
+  if (!ocidState && isLoading) {
     return <Loading />;
   }
 

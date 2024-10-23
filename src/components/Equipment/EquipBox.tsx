@@ -35,8 +35,8 @@ export default function EquipBox({
       {equipmentImage ? 
         <div className={styles.imageContainer}>
           <Image
-            layout="fill"
-            style={{ objectFit: 'contain' }}
+            width={30}
+            height={30}
             src={equipmentImage}
             alt={slotName || "Equipment Alt"}
           />

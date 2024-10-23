@@ -5,20 +5,19 @@ export const useCharacterQueries = (ocidState: string) => {
   return useQueries([
     {
       queryKey: ['characterData', ocidState],
-      queryFn: () => getCharacter(ocidState),
-      staleTime: 1000 * 60 * 5,
+      queryFn: () => (ocidState ? getCharacter(ocidState) : Promise.resolve(null)),
     },
     {
       queryKey: ['unionData', ocidState],
-      queryFn: () => getUnion(ocidState),
+      queryFn: () => (ocidState ? getUnion(ocidState) : Promise.resolve(null)),
     },
     {
       queryKey: ['dojangData', ocidState],
-      queryFn: () => getDojang(ocidState),
+      queryFn: () => (ocidState ? getDojang(ocidState) : Promise.resolve(null)),
     },
     {
       queryKey: ['popularityData', ocidState],
-      queryFn: () => getPopularity(ocidState),
+      queryFn: () => (ocidState ? getPopularity(ocidState) : Promise.resolve(null)),
     },
   ]);
 };

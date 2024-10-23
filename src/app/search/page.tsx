@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from 'next/navigation'
 
 // store
@@ -17,7 +17,7 @@ import Loading from "@/components/Loading/Loading";
 import { useOcidQuery } from "@/hooks/apis/useOcidQuery";
 
 export default function SearchPage() {
-  const { setOcid } = useOcid();
+  const { ocidState, setOcid } = useOcid();
   const searchParams = useSearchParams();
   const router = useRouter();
   const initialCharacterName = searchParams.get('name') || "";
@@ -46,7 +46,7 @@ export default function SearchPage() {
     }
   }
 
-  if (ocidLoading) {
+  if (!ocidState && ocidLoading) {
     return <Loading />
   }
   
@@ -66,8 +66,10 @@ export default function SearchPage() {
         <button className={styles.mainButton} type="submit">검색</button>
       </form>
 
-      <Character />
-      <Detail />
+      <Suspense fallback={<Loading />}>
+        <Character />
+        <Detail />
+      </Suspense>
     </div>
   );
 }

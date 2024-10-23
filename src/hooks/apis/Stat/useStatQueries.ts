@@ -5,16 +5,15 @@ export const useStatQueries = (ocidState: string) => {
   return useQueries([
     {
       queryKey: ['statData', ocidState],
-      queryFn: () => getStat(ocidState),
-      staleTime: 1000 * 60 * 5,
+      queryFn: () => (ocidState ? getStat(ocidState) : Promise.resolve(null)),
     },
     {
       queryKey: ['abilityData', ocidState],
-      queryFn: () => getAbility(ocidState),
+      queryFn: () => (ocidState ? getAbility(ocidState) : Promise.resolve(null)),
     },
     {
       queryKey: ['hyperData', ocidState],
-      queryFn: () => getHyperStat(ocidState),
+      queryFn: () => (ocidState ? getHyperStat(ocidState) : Promise.resolve(null)),
     },
   ]);
 };
