@@ -55,21 +55,21 @@ export default function SearchPage() {
   }
 
   return (
-    <div className={styles.mainDiv}>
-      <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
-        <input
-          className={styles.mainInput}
-          placeholder="캐릭터 이름을 입력!"
-          value={characterName}
-          onChange={handleInputChange}
-        />
-        <button className={styles.mainButton} type="submit">검색</button>
-      </form>
+    <Suspense fallback={<Loading />}>
+      <div className={styles.mainDiv}>
+        <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
+          <input
+            className={styles.mainInput}
+            placeholder="캐릭터 이름을 입력!"
+            value={characterName}
+            onChange={handleInputChange}
+          />
+          <button className={styles.mainButton} type="submit">검색</button>
+        </form>
 
-      <Suspense fallback={<Loading />}>
-        <Character />
-        <Detail />
-      </Suspense>
-    </div>
+          <Character />
+          <Detail />
+      </div>
+    </Suspense>
   );
 }
