@@ -3,8 +3,8 @@ import { EquipProps, AndroidProps } from '@/Types/Equipment';
 import styles from './equipment.module.css';
 import EquipBox from './EquipBox';
 import useEquipPotentialGrade from '@/hooks/useEquipGrade';
-import useCharacterItems from '@/hooks/useCharacterItems';
 import { equipmentList } from '@/constants/equipList';
+import useCharacterItems from '@/hooks/useCharacterItems';
 import EquipStatBox from './EquipStatBox';
 
 interface EquipmentProps {
@@ -13,21 +13,26 @@ interface EquipmentProps {
 }
 
 export default function Equipment({ characterEquipment, characterAndroid }: EquipmentProps) {
-  const [selectedEquip, setSelectedEquip] = useState<number | null>(null);
-  const equip = useCharacterItems(characterEquipment,"equip")
+  const [selectedEquip, setSelectedEquip] = useState<string | null>(null);
+  const equip = useCharacterItems(characterEquipment, "equip");
   const grade = useEquipPotentialGrade(characterEquipment);
 
-  console.log(characterEquipment, "장비 정보");
-
-  const handleEquipClick = (equipNum: number) => {
-    setSelectedEquip(prevEquip => (prevEquip === equipNum ? null : equipNum));
+  const handleEquipClick = (equipName: string) => {
+    setSelectedEquip(prevEquip => (prevEquip === equipName ? null : equipName));
   };
+
+  // 선택된 장비 정보를 찾아 변수에 저장
+  const selectedEquipment = selectedEquip
+    ? characterEquipment.item_equipment.find(
+        (item) => item.item_equipment_slot === selectedEquip
+      )
+    : null;
 
   return (
     <div className={styles.equipColumn}>
       <span className={styles.equipSpan}>EQUIPMENT</span>
       <div className={styles.equipmentContainer}>
-        {equipmentList.map((equipItem, index) => {
+        {equipmentList.map((equipItem) => {
           const currentEquip = equipItem.isAndroid 
             ? characterAndroid?.android_icon 
             : equipItem.partName;
@@ -41,22 +46,19 @@ export default function Equipment({ characterEquipment, characterAndroid }: Equi
               slotName={equipItem.name}
               partName={equipItem.partName}
               isCursor={true}
-              onClick={() => handleEquipClick(index)}
+              onClick={() => handleEquipClick(equipItem.name)}
             />
           );
         })}
       </div>
 
-      {/* 클릭된 장비의 정보만 표시 */}
-      {selectedEquip !== null && (
+      {/* 선택된 장비 정보가 있을 때만 EquipStatBox 렌더링 */}
+      {selectedEquipment ? (
         <div className={styles.statBoxContainer}>
-          {/* 선택된 슬롯을 통해 characterEquipment에서 올바른 장비 정보 접근 */}
-          {characterEquipment.item_equipment[selectedEquip] ? (
-            <EquipStatBox characterEquipment={characterEquipment.item_equipment[selectedEquip]} />
-          ) : (
-            <p>해당 장비 정보가 없습니다.</p> // 예외 처리
-          )}
+          <EquipStatBox characterEquipment={selectedEquipment} />
         </div>
+      ) : (
+        selectedEquip && null
       )}
     </div>
   );
