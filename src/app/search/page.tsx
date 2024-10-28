@@ -49,8 +49,7 @@ export default function SearchPage() {
   }
 
   return (
-    <Suspense fallback={<Loading />}>
-      <main className={styles.mainDiv}>
+    <main className={styles.mainDiv}>
         <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
           <input
             className={styles.mainInput}
@@ -64,12 +63,11 @@ export default function SearchPage() {
         {ocidLoading ? (
           <Loading />
         ) : (
-          <>
+          <Suspense fallback={<Loading />}>
             <Character />
             <Detail />
-          </>
+          </Suspense>
         )}
       </main>
-    </Suspense>
   );
 }
