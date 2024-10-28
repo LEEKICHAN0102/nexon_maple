@@ -36,6 +36,7 @@ export interface ItemAddOption {
 
 export interface ItemBaseOption extends ItemAddOption {
   base_equipment_level: number;
+  ignore_monster_armor: string;
 }
 
 export interface ItemEtcOption extends Pick<ItemAddOption, 'armor' | 'attack_power' | 'dex' | 'int' | 'jump' | 'luk' | 'magic_power' | 'max_hp' | 'max_mp' | 'speed' | 'str'> {}

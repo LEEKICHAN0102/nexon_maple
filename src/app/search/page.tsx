@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation';
 
 // store
 import useOcid from "@/store/ocid";
@@ -9,12 +9,10 @@ import useOcid from "@/store/ocid";
 // components
 import Character from "@/components/Character/Character";
 import Detail from "@/components/Detail/Detail";
-
-import styles from "./search.module.css";
-
 import Loading from "@/components/Loading/Loading";
 
 import { useOcidQuery } from "@/hooks/apis/useOcidQuery";
+import styles from "./search.module.css";
 
 export default function SearchPage() {
   const { ocidState, setOcid } = useOcid();
@@ -22,7 +20,7 @@ export default function SearchPage() {
   const router = useRouter();
   const initialCharacterName = searchParams.get('name') || "";
 
-  const [characterName, setCharacterName] = useState("");
+  const [characterName, setCharacterName] = useState(initialCharacterName);
   const [searchName, setSearchName] = useState(initialCharacterName);
 
   const { data: ocidData, isLoading: ocidLoading, error: ocidError } = useOcidQuery(searchName);
@@ -46,24 +44,27 @@ export default function SearchPage() {
     }
   }
 
+  if (ocidError) {
+    return <div>Error occurred while fetching data.</div>;
+  }
+
   return (
     <Suspense fallback={<Loading />}>
       <main className={styles.mainDiv}>
-        {!ocidState && ocidLoading ? (
+        <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
+          <input
+            className={styles.mainInput}
+            placeholder="캐릭터 이름을 입력!"
+            value={characterName}
+            onChange={handleInputChange}
+          />
+          <button className={styles.mainButton} type="submit">검색</button>
+        </form>
+
+        {ocidLoading ? (
           <Loading />
-        ) : ocidError ? (
-          <div>Error occurred while fetching data.</div>
         ) : (
           <>
-            <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
-              <input
-                className={styles.mainInput}
-                placeholder="캐릭터 이름을 입력!"
-                value={characterName}
-                onChange={handleInputChange}
-              />
-              <button className={styles.mainButton} type="submit">검색</button>
-            </form>
             <Character />
             <Detail />
           </>

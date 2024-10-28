@@ -90,5 +90,8 @@ export const statKeys = [
   { name: '방어력', key: 'armor' },
   { name: '이동속도', key: 'speed' },
   { name: '점프력', key: 'jump' },
+  { name: '보스 몬스터 공격 시 데미지', key: 'boss_damage',  suffix: '%' },
   { name: '올스탯', key: 'all_stat',  suffix: '%' },
+  { name: '데미지', key: 'damage',  suffix: '%' },
+  { name: '몬스터 방어율 무시', key: 'ignore_monster_armor',  suffix: '%' },
 ];
