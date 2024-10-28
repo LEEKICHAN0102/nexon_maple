@@ -31,14 +31,14 @@ export default function SearchPage() {
     if (ocidData) {
       setOcid(ocidData.ocid);
     }
-  }, [ocidData, setOcid]); // ocidData가 변경될 때만 실행
+  }, [ocidData, setOcid]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCharacterName(event.target.value); // 입력된 값 상태 업데이트
+    setCharacterName(event.target.value);
   }
 
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // 기본 제출 동작 방지
+    event.preventDefault();
 
     if (characterName) {
       setSearchName(characterName);
@@ -46,30 +46,29 @@ export default function SearchPage() {
     }
   }
 
-  if (!ocidState && ocidLoading) {
-    return <Loading />
-  }
-  
-  if (ocidError) {
-    return <div>Error occurred while fetching data.</div>;
-  }
-
   return (
     <Suspense fallback={<Loading />}>
-      <div className={styles.mainDiv}>
-        <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
-          <input
-            className={styles.mainInput}
-            placeholder="캐릭터 이름을 입력!"
-            value={characterName}
-            onChange={handleInputChange}
-          />
-          <button className={styles.mainButton} type="submit">검색</button>
-        </form>
-
-          <Character />
-          <Detail />
-      </div>
+      <main className={styles.mainDiv}>
+        {!ocidState && ocidLoading ? (
+          <Loading />
+        ) : ocidError ? (
+          <div>Error occurred while fetching data.</div>
+        ) : (
+          <>
+            <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
+              <input
+                className={styles.mainInput}
+                placeholder="캐릭터 이름을 입력!"
+                value={characterName}
+                onChange={handleInputChange}
+              />
+              <button className={styles.mainButton} type="submit">검색</button>
+            </form>
+            <Character />
+            <Detail />
+          </>
+        )}
+      </main>
     </Suspense>
   );
 }
