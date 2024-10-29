@@ -1,5 +1,6 @@
 import axios from "axios";
-import { BASE_URL, NEXON_API_KEY } from "@/constants/constant";
+export const BASE_URL = "https://open.api.nexon.com";
+export const NEXON_API_KEY = process.env.NEXON_API_KEY;
 
 export const getSkillInfo = async (ocid: string, character_skill_grade: number) => {
   try {

@@ -1,5 +1,7 @@
 import axios from "axios";
-import { BASE_URL, NEXON_API_KEY } from "@/constants/constant";
+export const BASE_URL = "https://open.api.nexon.com";
+export const NEXON_API_KEY = process.env.NEXON_API_KEY;
+
 
 const fetchData = async (endpoint: string, params: Record<string, string>, errorMessage: string) => {
   try {
