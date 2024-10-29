@@ -1,13 +1,11 @@
 import axios from "axios";
 export const BASE_URL = "https://open.api.nexon.com";
-export const NEXON_API_KEY = process.env.NEXON_API_KEY;
-
 
 const fetchData = async (endpoint: string, params: Record<string, string>, errorMessage: string) => {
   try {
     const response = await axios.get(`${BASE_URL}${endpoint}`, {
       headers: {
-        "x-nxopen-api-key": NEXON_API_KEY,
+        "x-nxopen-api-key": process.env.NEXT_PUBLIC_NEXON_API_KEY,
       },
       params,
     });
