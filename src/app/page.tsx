@@ -28,7 +28,7 @@ export default function Home() {
         <form className={styles.mainForm} onSubmit={handleSearchSubmit}>
           <input
             className={styles.mainInput}
-            placeholder="캐릭터 이름을 입력 후 검색!"
+            placeholder="캐릭터 이름을 입력 후 검색! | EX) 대리깨진사람"
             value={characterName}
             onChange={handleInputChange}
           />
