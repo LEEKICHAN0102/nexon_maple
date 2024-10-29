@@ -39,6 +39,7 @@ export default function EquipBox({
             height={30}
             src={equipmentImage}
             alt={slotName || "Equipment Alt"}
+            loading="lazy"
           />
         </div> : null}
     </div>

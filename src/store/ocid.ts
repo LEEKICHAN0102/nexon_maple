@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-interface StoreProps {
+interface OcidProps {
   ocidState: string;
   setOcid: (ocid: string) => void;
 }
 
-const useOcid = create<StoreProps>((set) => ({
+const useOcid = create<OcidProps>((set) => ({
   ocidState: "",
   setOcid: (ocid) => set({ ocidState: ocid }),
 }));
