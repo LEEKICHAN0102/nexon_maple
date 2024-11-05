@@ -5,7 +5,7 @@ interface ItemOption {
 }
 
 // 펫 장비 타입
-interface PetEquipment {
+export interface PetEquipment {
   item_name: string;
   item_icon: string;
   item_description: string;
@@ -17,7 +17,7 @@ interface PetEquipment {
 }
 
 // 펫 자동 스킬 타입
-interface PetAutoSkill {
+export interface PetAutoSkill {
   skill_1: string;
   skill_1_icon: string;
   skill_2: string;
@@ -60,4 +60,5 @@ export interface PetProps {
   pet_3_date_expire: string;
   pet_3_appearance: string;
   pet_3_appearance_icon: string;
+  [key: string]: any;
 }

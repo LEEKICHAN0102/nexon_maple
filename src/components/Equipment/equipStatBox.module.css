@@ -37,6 +37,11 @@
   font-size: 12px;
 }
 
+.petNameBox {
+  composes: itemNameBox;
+  gap: 3px;
+}
+
 .itemNameBox p {
   font-weight: bold;
   font-size: 8px;
@@ -52,6 +57,23 @@
   color: #EEC72E;
   font-size: 8px;
   font-weight: bold;
+}
+
+.petTextBox {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.petImageBox {
+  composes: itemImageBox;
+  align-items: flex-start;
+  color: white;
+}
+
+.petSkill {
+  font-size: 8px;
+  color: #EEC72E;
 }
 
 .itemImageBox img {
