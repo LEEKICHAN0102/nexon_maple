@@ -31,7 +31,7 @@ export default function PetBox({ characterPet, index }: PBoxProps) {
           <span className={styles.itemNameSpan}>
             {petName}
           </span>
-          <p>{petType}</p>
+          <p className={styles.petTypeParagraph}>{petType}</p>
           <p>마법의 시간: {magicHour}</p>
         </div>
 

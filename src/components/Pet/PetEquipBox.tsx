@@ -10,6 +10,7 @@ interface PBoxProps {
 }
 
 export default function PetEquipBox({ petEquipment }: PBoxProps) {
+  if (!petEquipment.item_name) return null;
 
   return (
     <div className={styles.detailCoveringBox}>

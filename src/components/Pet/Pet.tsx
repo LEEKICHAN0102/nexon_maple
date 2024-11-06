@@ -24,7 +24,7 @@ export default function Pet({ characterPet }: PetsProps) {
             <div className={styles.petImageContent}>
             <div 
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPet(1)}
+              onMouseEnter={() => characterPet?.pet_1_name && setHoveredPet(1)}
               onMouseLeave={() => setHoveredPet(null)}
             >
               <img 
@@ -34,7 +34,7 @@ export default function Pet({ characterPet }: PetsProps) {
             </div>
             <div 
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPetEquipment(1)}
+              onMouseEnter={() => characterPet.pet_1_equipment && setHoveredPetEquipment(1)}
               onMouseLeave={() => setHoveredPetEquipment(null)}
             >
               <img 
@@ -62,7 +62,7 @@ export default function Pet({ characterPet }: PetsProps) {
           <div className={styles.petImageContent}>
             <div
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPet(2)}
+              onMouseEnter={() => characterPet?.pet_2_name && setHoveredPet(2)}
               onMouseLeave={() => setHoveredPet(null)}
             >
               <img 
@@ -72,7 +72,7 @@ export default function Pet({ characterPet }: PetsProps) {
             </div>
             <div 
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPetEquipment(2)}
+              onMouseEnter={() => characterPet?.pet_2_equipment && setHoveredPetEquipment(2)}
               onMouseLeave={() => setHoveredPetEquipment(null)}
             >
               <img 
@@ -99,7 +99,7 @@ export default function Pet({ characterPet }: PetsProps) {
           <div className={styles.petImageContent}>
             <div
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPet(3)}
+              onMouseEnter={() => characterPet?.pet_3_name && setHoveredPet(3)}
               onMouseLeave={() => setHoveredPet(null)}
             >
               <img 
@@ -109,7 +109,7 @@ export default function Pet({ characterPet }: PetsProps) {
             </div>
             <div 
               className={styles.petImageDiv}
-              onMouseEnter={() => setHoveredPetEquipment(3)}
+              onMouseEnter={() => characterPet?.pet_3_equipment && setHoveredPetEquipment(3)}
               onMouseLeave={() => setHoveredPetEquipment(null)}
             >
               <img 

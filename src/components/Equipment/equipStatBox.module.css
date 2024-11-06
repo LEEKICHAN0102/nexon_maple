@@ -42,6 +42,10 @@
   gap: 3px;
 }
 
+.petTypeParagraph {
+  color: #8D60BB;
+}
+
 .itemNameBox p {
   font-weight: bold;
   font-size: 8px;
