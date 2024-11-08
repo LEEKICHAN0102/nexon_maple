@@ -42,24 +42,32 @@
 ### 3. 캐릭터 장비 장착 정보
 
 <div style="display: flex; gap: "5px";">
-  <img src="https://github.com/user-attachments/assets/5f36cb59-ce94-41f2-808e-869de43c636f" alt="Image 1" width="300"/>
-  <img src="https://github.com/user-attachments/assets/06fc1e3a-8e71-431f-9575-44e85761fc02" alt="Image 2" />
-  <img src="https://github.com/user-attachments/assets/32ee1cf0-8922-4315-88ca-31c6b040a057" alt="Image 3" />
+  <img src="https://github.com/user-attachments/assets/5f36cb59-ce94-41f2-808e-869de43c636f" alt="Image 1" width="300" height="450px" />
+  <img src="https://github.com/user-attachments/assets/06fc1e3a-8e71-431f-9575-44e85761fc02" alt="Image 2" height="450px" />
+  <img src="https://github.com/user-attachments/assets/32ee1cf0-8922-4315-88ca-31c6b040a057" alt="Image 3" height="450px" />
   <img src="https://github.com/user-attachments/assets/4ebae7be-dbc3-4181-a182-66dc2801cec5" alt="Image 4" />
+</div>
+
+<div style="display: flex; gap: "5px";">
+  <img src="https://github.com/user-attachments/assets/0950a8df-d5eb-49bb-a147-e23c53bf3deb" alt="Image 5" width="300" height="450px" />
+  <img src="https://github.com/user-attachments/assets/aa6cfba2-4b6b-40f6-acb0-632b13046738" alt="Image 6" width="300" height="450px" />
 </div>
 
 - 캐릭터가 현재 장착하고 있는 장비의 정보에 대해서 확인할 수 있습니다.
 - 장비 클릭을 통해 더 자세한 부분(주문서 강화 상태, 추가 옵션, 스타포스 수치, 잠재 옵션 등)에 대한 확인이 가능합니다.
 - 캐릭터가 장착하고 있는 심볼의 강화 상태에 대한 확인이 가능합니다.
+- 유저의 펫 정보와 펫 자동스킬 정보, 펫 장비 강화 상태에 대한 확인이 가능합니다.
 
   
 <br/>
 
 ### 4. 캐릭터 스킬 강화 상태   
 
-![image](https://github.com/user-attachments/assets/a9ae5892-4d2d-4ded-92d7-5fc3e0410a2a)
-![image](https://github.com/user-attachments/assets/740f62d2-891b-4cae-a1c7-3c18e93e0378)
-![image](https://github.com/user-attachments/assets/ef4b1c86-62e8-4d29-8f9d-bfbbf20206a3)
+<div style="display: flex; gap: "5px";">
+  <img src="https://github.com/user-attachments/assets/a9ae5892-4d2d-4ded-92d7-5fc3e0410a2a" alt="Image 7" width="300" height="450px" />
+  <img src="https://github.com/user-attachments/assets/740f62d2-891b-4cae-a1c7-3c18e93e0378" alt="Image 8" width="200" height="300px" />
+  <img src="https://github.com/user-attachments/assets/ef4b1c86-62e8-4d29-8f9d-bfbbf20206a3" alt="Image 9" width="200" height="300px" />
+</div>
 
 - 캐릭터가 장착하고 있는 링크 스킬, V 매트릭스, HEXA 매트릭스의 강화 상태를 확인할 수 있습니다.
 - 장착 스킬의 자세한 효과를 확인 가능하고, 인게임에서 확인하기 어려웠던 HEXA 스탯의 경우 쉽게 확인 할 수 있습니다.
