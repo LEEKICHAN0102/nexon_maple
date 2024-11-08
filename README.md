@@ -77,8 +77,11 @@
 ### 5. 캐릭터 캐시 아이템 장착 정보
 
 ![image](https://github.com/user-attachments/assets/dbc0387e-bb30-4c6f-9792-d91597971e5c)
+![image](https://github.com/user-attachments/assets/0a583128-d872-408d-807c-016d4f9b497d)
+
 
 - 캐릭터가 현재 장착하고 있는 캐시 아이템에 대한 정보를 확인할 수 있습니다.
+- 캐릭터 장착 캐시 아이템 (장비, 성형 등)을 클릭하였을 때 오버레이를 통해 믹스 비율 등의 좀 더 자세한 정보를 확인할 수 있도록 수정 하였습니다.
 
 <br/>
 
