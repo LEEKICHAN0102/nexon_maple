@@ -6,7 +6,6 @@ export const useEquipmentQueries = (ocidState: string) => {
     {
       queryKey: ['equipData', ocidState],
       queryFn: () => getItemEquipment(ocidState),
-      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['androidData', ocidState],

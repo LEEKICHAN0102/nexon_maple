@@ -1,5 +1,5 @@
 import { useQueries } from 'react-query';
-import { getCash, getAndroid } from '@/api/api';
+import { getCash, getAndroid, getBeauty } from '@/api/api';
 
 export const useCashQueries = (ocidState: string) => {
   return useQueries([
@@ -12,5 +12,9 @@ export const useCashQueries = (ocidState: string) => {
       queryKey: ['androidData', ocidState],
       queryFn: () => getAndroid(ocidState),
     },
+    {
+      queryKey: ['beautyData', ocidState],
+      queryFn: () => getBeauty(ocidState),
+    }
   ]);
 };

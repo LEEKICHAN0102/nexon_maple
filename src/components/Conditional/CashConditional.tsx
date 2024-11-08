@@ -30,13 +30,14 @@ export default function CashConditional() {
   
   const cashData = results[0].data;
   const androidData = results[1].data;
+  const beautyData = results[2].data;
 
   return(
     <main className={styles.cashMain}>
       <div className={styles.cashNav}>
         <Navigation />
         <div className={styles.cashCharacter}>
-          <CashItem characterCash={cashData} />
+          <CashItem characterCash={cashData} characterBeauty={beautyData} />
           <Android  characterAndroid={androidData} />
         </div>
       </div>

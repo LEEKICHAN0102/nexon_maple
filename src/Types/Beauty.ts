@@ -24,10 +24,10 @@ export interface BeautyProps {
   data: string;
   character_gender: string;
   character_class: string;
-  character_hair: HairProps[];
-  character_face: FaceProps[];
-  character_skin: SkinProps[];
-  additional_character_hair: HairProps[];
-  additional_character_face: FaceProps[];
-  additional_character_skin: SkinProps[];
+  character_hair: HairProps;
+  character_face: FaceProps;
+  character_skin: SkinProps;
+  additional_character_hair: HairProps;
+  additional_character_face: FaceProps;
+  additional_character_skin: SkinProps;
 }
