@@ -54,7 +54,7 @@ export default function Character() {
             <span>{characterData?.character_guild_name || '없음'}</span>
           </div>
           <div className={styles.borderBox}>연합
-            <span>{characterData?.character_union_name || '없음'}</span>
+            <span>{characterData?.character_guild_name || '---'}</span>
           </div>
         </div>
       </div>

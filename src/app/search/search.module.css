@@ -12,11 +12,25 @@
   width: auto;
 }
 
+.mainHandler {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mainHandler svg {
+  width: 20px;
+  height: 20px;
+  color: rgb(98, 98, 98);
+  cursor: pointer;
+}
+
 .mainForm {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  margin-bottom: 20px;
 }
 
 .mainInput {

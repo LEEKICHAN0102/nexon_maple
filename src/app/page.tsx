@@ -37,7 +37,9 @@ export default function Home() {
 
         <div className={styles.footerText}>
           <span>This website is designed for study purposes and does not generate revenue</span>
-          <span>Data based on NEXON Open API</span>
+          <span style={{ cursor: "pointer", zIndex: 100 }}>
+            <a href="https://openapi.nexon.com/ko/" target="_blank">Data based on NEXON Open API</a>
+          </span>
         </div>
       </div>
     </main>
