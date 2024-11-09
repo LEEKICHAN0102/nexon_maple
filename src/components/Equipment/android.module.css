@@ -49,6 +49,18 @@
   margin-top: 30px;
 }
 
+.androidBoxContainer {
+  position: absolute;
+  transform: translate(95%, -20%);
+  z-index: 10;
+}
+
+.androidBeautyBoxContainer {
+  position: absolute;
+  transform: translate(95%, -150%);
+  z-index: 10;
+}
+
 /* 각 장비 슬롯의 grid 위치 지정 */
 .slot-1 { grid-column: 1; grid-row: 1; }
 .slot-2 { grid-column: 2; grid-row: 1; }

@@ -26,7 +26,6 @@ export default function CashItem({ characterCash, characterBeauty }: CashItemPro
   
   const handleBeautyClick = (beautyName: string) => {
     setSelectedBeauty(prevBeauty => (prevBeauty === beautyName ? null : beautyName));
-    setSelectedCash(null);
   };
 
   const handleCashClick = (cashName: string) => {

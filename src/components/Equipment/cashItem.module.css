@@ -34,15 +34,15 @@
 }
 
 .cashBoxContainer {
-  position: absolute; /* 절대 위치 */
-  transform: translate(-110%, -20%); /* 박스 크기의 절반만큼 이동시켜 중앙 정렬 */
-  z-index: 10; /* 다른 요소 위에 위치하도록 */
+  position: absolute;
+  transform: translate(-110%, -20%);
+  z-index: 10;
 }
 
 .beautyBoxContainer {
-  position: absolute; /* 절대 위치 */
-  transform: translate(-110%, -150%); /* 박스 크기의 절반만큼 이동시켜 중앙 정렬 */
-  z-index: 10; /* 다른 요소 위에 위치하도록 */
+  position: absolute;
+  transform: translate(-110%, -150%);
+  z-index: 10;
 }
 
 /* 각 장비 슬롯의 grid 위치 지정 */
