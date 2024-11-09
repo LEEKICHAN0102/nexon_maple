@@ -83,14 +83,10 @@ export default function SearchPage() {
       {ocidLoading ? (
         <Loading />
       ) : (
-        <>
-          <Suspense fallback={<Loading />}>
-            <Character />
-          </Suspense>
-          <Suspense fallback={<Loading />}>
-            <Detail />
-          </Suspense>
-        </>
+        <Suspense fallback={<Loading />}>
+          <Character />
+          <Detail />
+        </Suspense>
       )}
     </main>
   );
