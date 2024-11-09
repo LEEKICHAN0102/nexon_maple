@@ -80,14 +80,16 @@ export default function SearchPage() {
         <AiOutlineRollback onClick={handleBackMinus} />
       </div>
 
-      {ocidLoading ? (
-        <Loading />
-      ) : (
-        <Suspense fallback={<Loading />}>
-          <Character />
-          <Detail />
-        </Suspense>
-      )}
+      <Suspense fallback={<Loading />}>
+        {ocidLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <Character />
+            <Detail />
+          </>
+        )}
+      </Suspense>
     </main>
   );
 }
