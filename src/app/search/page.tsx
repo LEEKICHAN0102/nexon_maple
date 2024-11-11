@@ -1,14 +1,14 @@
+// SearchPage.tsx
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import useCharacterName from "@/store/name";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { AiFillHome, AiOutlineRollback } from "react-icons/ai";
 
 // store
 import useOcid from "@/store/ocid";
+import useToast from "@/store/toast";
 
 // components
 import Character from "@/components/Character/Character";
@@ -24,10 +24,17 @@ export default function SearchPage() {
   const router = useRouter();
   const params = useSearchParams();
   const searchName = params.get("name") || characterName;
+  const { setToast } = useToast();
 
   const [inputName, setInputName] = useState(searchName);
 
   const { data: ocidData, isLoading: ocidLoading, error: ocidError } = useOcidQuery(searchName);
+  
+  useEffect(() => {
+    if (ocidError) {
+      setToast("존재하지 않는 계정 또는 장기간 접속하지 않은 캐릭터 입니다. \n 영어 대소문자 구별에 주의하세요!");
+    }
+  }, [ocidError, setToast]);
 
   useEffect(() => {
     if (ocidData) {
@@ -35,12 +42,6 @@ export default function SearchPage() {
     }
   }, [ocidData, setOcid]);
 
-  useEffect(() => {
-    if (ocidError) {
-      toast.error("장기간 접속하지 않았거나 존재하지 않는 계정 이름 입니다.");
-      toast.warning("NEXON OPEN API는 영어 대,소문자를 구분합니다.");
-    } 
-  }, [ocidError]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputName(event.target.value);
@@ -65,7 +66,6 @@ export default function SearchPage() {
 
   return (
     <main className={styles.mainDiv}>
-      <ToastContainer />
       <div className={styles.mainHandler}>
         <AiFillHome onClick={handleBackHome} />
         <form className={styles.mainForm} onSubmit={handleSearchSubmit}>

@@ -2,22 +2,27 @@ import { useCharacterQueries } from "@/hooks/apis/Character/useCharacterQureis";
 import useOcid from "@/store/ocid";
 import styles from "./character.module.css";
 import Loading from "../Loading/Loading";
+import { useEffect } from "react";
+import useToast from "@/store/toast";
 
 export default function Character() {
   const { ocidState } = useOcid();
   const results = useCharacterQueries(ocidState);
+  const { setToast } = useToast();
 
   const isLoading = results.some(result => result.isLoading);
   const isError = results.some(result => result.isError);
+  
+  useEffect(() => {
+    if (isError) {
+      setToast("존재하지 않는 계정 또는 장기간 접속하지 않은 캐릭터 입니다. \n 영어 대소문자 구별에 주의하세요!");
+    }
+  }, [isError, setToast]);
 
-  if (!ocidState && isLoading) {
+  if (isLoading) {
     return <Loading />;
   }
 
-  if (isError) {
-    return <div>Error occurred while fetching data.</div>;
-  }
-  
   const characterData = results[0].data;
   const unionData = results[1].data;
   const dojangData = results[2].data;
@@ -49,12 +54,15 @@ export default function Character() {
           </div>
         </div>
         <div className={styles.right}>
-          <div className={`${styles.borderBox} ${styles.blueBack}`}>길드</div>
-          <div className={styles.borderBox}>길드
-            <span>{characterData?.character_guild_name || '없음'}</span>
-          </div>
-          <div className={styles.borderBox}>연합
-            <span>{characterData?.character_guild_name || '---'}</span>
+          <div className={styles.borderBox}>{characterData?.world_name}</div>
+          <div className={styles.rightDown}>
+            <div className={`${styles.borderBox} ${styles.blueBack}`}>길드</div>
+            <div className={styles.borderBox}>길드
+              <span>{characterData?.character_guild_name || '없음'}</span>
+            </div>
+            <div className={styles.borderBox}>연합
+              <span>{characterData?.character_guild_name || '---'}</span>
+            </div>
           </div>
         </div>
       </div>

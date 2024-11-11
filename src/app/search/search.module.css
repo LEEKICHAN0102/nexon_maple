@@ -34,15 +34,15 @@
 }
 
 .mainInput {
-  width: 150px;
+  width: 250px;
   height: 30px;
   padding: 10px;
   border: none;
   background-color: white;
   color: black;
   outline: none;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
   &::placeholder{
     color: gray;
     font-weight: bolder;
