@@ -1,23 +1,22 @@
 import { useQueries } from 'react-query';
 import { getCash, getAndroid, getBeauty } from '@/api/api';
-import { queryOptions } from "@/constants/queryOptions";
 
 export const useCashQueries = (ocidState: string) => {
   return useQueries([
     {
       queryKey: ['cashData', ocidState],
       queryFn: () => getCash(ocidState),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['androidData', ocidState],
       queryFn: () => getAndroid(ocidState),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['beautyData', ocidState],
       queryFn: () => getBeauty(ocidState),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     }
   ]);
 };
