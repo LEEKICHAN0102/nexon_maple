@@ -34,7 +34,12 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.mainDiv}>
-        <Image className={styles.mainImage} src={MainImage} alt="소멸의 여로" />
+        <Image
+          className={styles.mainImage}
+          src={MainImage}
+          alt="소멸의 여로"
+          priority
+        />
         <h1 className={styles.mainTitle}>NEXON_MAPLE SSAK SSAK</h1>
 
         <form className={styles.mainForm} onSubmit={handleSearchSubmit}>

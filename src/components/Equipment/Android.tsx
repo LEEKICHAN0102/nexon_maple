@@ -19,8 +19,6 @@ export default function Android({ characterAndroid }: CharacterAndroidProps) {
   const [selectedAndroid, setSelectedAndroid] = useState<string | null>(null);
   const [selectedBeauty, setSelectedBeauty] = useState<string | null>(null);
 
-  console.log(characterAndroid, "캐릭터 안드로이등");
-
   const handleAndroidBoxClick = (androidEquipName: string) => {
     setSelectedAndroid(prevAndroid => prevAndroid === androidEquipName ? null : androidEquipName)
   }

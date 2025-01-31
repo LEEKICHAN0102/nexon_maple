@@ -4,6 +4,7 @@ import styles from "./character.module.css";
 import Loading from "../Loading/Loading";
 import { useEffect } from "react";
 import useToast from "@/store/toast";
+import Image from "next/image";
 
 export default function Character() {
   const { ocidState } = useOcid();
@@ -49,7 +50,16 @@ export default function Character() {
         <div className={styles.center}>
           <div className={styles.levelBox}>Lv. {characterData?.character_level}</div>
           <div className={styles.imageBox}>
-            <img src={`${characterData?.character_image}`} alt="대표 이미지" style={{ width: "130px", height: "130px" }} />
+            {characterData?.character_image ? (
+              <Image
+                src={characterData.character_image}
+                alt="대표 이미지"
+                width={130}
+                height={130}
+              />
+            ) : (
+              null
+            )}
             <div className={styles.nameDiv}>{characterData?.character_name}</div>
           </div>
         </div>
