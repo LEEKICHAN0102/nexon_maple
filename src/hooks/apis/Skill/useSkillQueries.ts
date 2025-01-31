@@ -1,29 +1,29 @@
 import { getSkillInfo } from '@/api/skillApi';
 import { useQueries } from 'react-query';
 import { getLink, getHexaMatrixStat } from '@/api/api';
-import { queryOptions } from '@/constants/queryOptions';
+
 
 export const useSkillQueries = (ocidState: string, character_skill_grade_v: number, character_skill_grade_hexa: number) => {
   return useQueries([
     {
       queryKey: ['linkData', ocidState],
       queryFn: () => getLink(ocidState),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['vData', ocidState],
       queryFn: () => getSkillInfo(ocidState, character_skill_grade_v),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['hexaData', ocidState],
       queryFn: () => getSkillInfo(ocidState, character_skill_grade_hexa ),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
     {
       queryKey: ['hexaStatData', ocidState],
       queryFn: () => getHexaMatrixStat(ocidState),
-      ...queryOptions,
+      staleTime: 1000 * 60 * 5,
     },
   ]);
 };
